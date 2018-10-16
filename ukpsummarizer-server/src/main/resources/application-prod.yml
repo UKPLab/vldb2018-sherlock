@@ -1,0 +1,35 @@
+#server:
+#  port: 80
+spring:
+  data:
+  datasource:
+    url: jdbc:mysql://localhost/cascade
+    username: cascade
+    password: cascade
+  jpa:
+    hibernate:
+      #ddl-auto: update
+      ddl-auto: create-drop
+
+ukpsummarizer:
+  python:
+    bin: python
+  datadir: /srv/sherlock/data/
+  casum:
+    os: linux
+    workdir: /srv/sherlock/bin/ukpsummarizer-be/
+logging:
+  path: /srv/sherlock/log/
+  level:
+    root: DEBUG
+    org:
+      springframework:
+        web: INFO
+        boot: DEBUG
+        cache: TRACE
+      hibernate: INFO
+    net:
+      dataexpedition: TRACE
+
+root:
+  name: production

@@ -3,6 +3,6 @@
 #pip install virtualenv
 #conda create -n .venv python=2.7
 #source .venv/bin/activate
-conda activate .venv
+source activate .venv
 pip install -r requirements.txt
 source deactivate
