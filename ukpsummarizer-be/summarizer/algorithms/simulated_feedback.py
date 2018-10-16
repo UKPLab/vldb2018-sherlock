@@ -242,7 +242,7 @@ class SimulatedFeedback():
         if parser_type == PARSE_TYPE_PARSE:
             log.debug('Get concept types Phrases')
             self.summarizer.extract_ngrams2(concept_type='phrase')
-        if parser_type == None:
+        if parser_type == None or parser_type=='ngram':
             log.debug('Get concept types ngrams')
             self.summarizer.extract_ngrams2(concept_type='ngrams')
 

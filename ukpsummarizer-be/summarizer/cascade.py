@@ -353,5 +353,5 @@ if __name__ == '__main__':
         else:
             raise BaseException("Invalid file given.", f, " is neither a topic nor a model.")
 
-        log("Done wiht rouge")
+        log("Done with rouge")
     log("Done")

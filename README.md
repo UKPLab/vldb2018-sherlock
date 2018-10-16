@@ -18,6 +18,14 @@ Prerequisites
 
 1. Install Anaconda
 2. Install virtual environment conda create -n .venv python=2.7
+3. Install GLPK and CPLEX for pulp
+4. Perl dependencies:
+    - 'LOCAL::LIB' Perl: sudo apt-get install liblocal-lib-perl
+    - XML DOM
+5. - XML::DOM - sudo apt-get install libxml-dom-perl
+   - libexpat - sudo apt-get install libexpat-dev
+   - libparser - sudo apt-get install libxml-parser-perl
+
 
 Build and Run
 --------

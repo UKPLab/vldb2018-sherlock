@@ -1,8 +1,8 @@
 /**
- * Hendrik Lücke-Tieke
- * dataexpedition.net
+ * Avinesh P.V.S
+ * UKP Labs
  *
- * Copyright (c) 2017 Hendrik Lücke-Tieke. All rights reserved.
+ * Copyright (c) 2018 Avinesh P.V.S. All rights reserved.
  *
  * Do not use without prior consent by the copyright holder.
  *

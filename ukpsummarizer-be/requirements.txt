@@ -11,3 +11,5 @@ six>=1.10.0
 networkx>=1.11
 pandas>=0.19.2
 dill>=0.2.6
+sortedcollections>=1.0.1
+
