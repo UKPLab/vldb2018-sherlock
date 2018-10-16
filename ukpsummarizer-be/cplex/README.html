@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>IBM ILOG CPLEX Optimization Studio Version 12.8.0</TITLE>
+
+</HEAD>
+
+
+<body>
+<h1>IBM ILOG CPLEX Optimization Studio Version 12.8.0</h1>
+
+<p>IBM&reg; ILOG CPLEX Optimization Studio ist die schnellste Methode
+für das Erstellen effizienter Optimierungsmodelle und technologisch ausgereifter Anwendungen für den gesamten Bereich von Planungs- und
+Zeitplanungsproblemen. Mit seiner integrierten Entwicklungsumgebung (IDE, Integrated Development Environment),
+seiner beschreibenden Modellierungssprache und seinen integrierten Tools sowie technologisch ausgereiften
+Solvern für Probleme bei der mathematischen Programmierung und der Constraintprogrammierung unterstützt das Produkt
+den gesamten Modellentwicklungs- und Lösungsprozess.</p>
+
+<p>CPLEX Optimization Studio setzt sich aus mehreren Komponenten zusammen. Nicht alle Komponenten sind auf allen Plattformen verfügbar.  
+Weitere Einzelheiten hierzu finden Sie auf der Webseite mit den detaillierten Systemvoraussetzungen. 
+Jede Komponente befindet sich in einem Unterordner (in einem Unterverzeichnis unter AIX und Linux) der Installationsposition. 
+Die Anwendungsprogrammierschnittstellen (API, Application Programming Interface) und Connectors
+für die einzelnen Komponenten befinden sich im Unterordner (Unterverzeichnis) der jeweiligen Komponente. Die
+MATLAB- und AMPL-Connectors für CPLEX befinden sich beispielsweise im Ordner (Verzeichnis) <code>cplex</code>.
+</p>
+<ul>
+<li><code>opl</code>: OPL-Modellierungsumgebung und integrierte Entwicklungsumgebung (IDE, Integrated Development Environment)</li>
+<li><code>cplex</code>: CPLEX Optimizer (u. a. Simplex Optimizer, Barrier Optimizer und MIP Optimizer)</li>
+<li><code>cpoptimizer</code>: CP Optimizer mit Constraintprogrammierungstechnologie</li>
+<li><code>concert</code>: C++-Modellierungsschicht für die Optimizer</li>
+<li><code>python</code>: Python-Modellierungsschicht DOcplex für CPLEX Optimizer und CP Optimizer</li>
+</ul>
+<p>Weitere Verzeichnisse:</p>
+<ul>
+<li><code>doc</code>: HTML-Version der Dokumentation</li>
+<li><code>jre</code>: Java-Laufzeitumgebung für den Installations- und Deinstallationsprozess (auf Plattformen ohne OPL IDE)</li>
+<li><code>license</code>: Lizenzvereinbarungsdokumente</li>
+<li><code>properties</code>: Inventarinformationen</li>
+<li><code>Uninstall</code>: Für die Deinstallation des Produkts erforderliche Informationen</li>
+</ul>
+
+<p><b>INHALT</b></p>
+<ul>
+<li><a href="#relnotes">Releaseinformationen für Version 12.8.0</a></li>
+<li><a href="#infocenter">Knowledge Center</a></li>
+<li><a href="#productsupport">Produktunterstützung</a></li>
+<li><a href="#developer_works">developerWorks</a></li>
+<li><a href="#sys_reqs">Systemvoraussetzungen</a></li>
+<li><a href="#install_win">Installation unter Windows</a></li>
+<li><a href="#install_x">Installation unter AIX und Linux</a></li>
+<li><a href="#install_macos">Installation unter Mac OS</a></li>
+<li><a href="#silentinstall">Unbeaufsichtigte Installation von CPLEX Optimization Studio</a></li>
+<li><a href="#uninstall">CPLEX Optimization Studio deinstallieren</a></li>
+<li><a href="#issuesaddressed">In Version 12.8.0 behobene Probleme</a></li>
+</ul>
+
+<HR>
+<h2><a name="relnotes">Releaseinformationen für Version 12.8.0</a></h2>
+<p>Eine vollständige Beschreibung der Verbesserungen und neuen Features finden Sie in den Releaseinformationen. 
+Sie können wie folgt
+auf die Releaseinformationen und weitere Dokumentationen zugreifen:</p>
+<ul>
+<li>Online: <a href ="http://www-01.ibm.com/support/knowledgecenter/SSSA5P_12.8.0/ilog.odms.studio.help/Optimization_Studio/topics/COS_relnotes_intro.html">
+<i>Einführung in IBM ILOG CPLEX Optimization Studio Version 12.8.0</a></i></li>
+<li>Windows: </li>
+<ul>
+<li>
+<b>Start &gt; Alle Programme &gt; CPLEX Optimization Studio 12.8.0 &gt; Dokumentation</b></li>
+</ul>
+<li>Linux: Verwenden Sie die folgenden Befehle, um auf die Dokumentation zuzugreifen:</li>
+<ul>
+<li><code>oplide -nosplash -displayHelp opl</code></li>
+<li><code>oplide -nosplash -displayHelp cplex</code></li>
+<li><code>oplide -nosplash -displayHelp cpo</code></li>
+<li><code>oplide -nosplash -shutdownHelp</code></li>
+</ul>
+<li>Mac OS und AIX: Die Dokumentation ist in der Datei <code>[Installationsverzeichnis]/doc/html/en-US/documentation.html</code> enthalten. </li>
+</ul>
+
+<HR>
+<h2><a name="infocenter">IBM Knowledge Center</a></h2>
+<p>Die aktualisierte Dokumentation für Version 12.8.0
+ist auch online im <a href="http://www-01.ibm.com/support/knowledgecenter/SSSA5P_12.8.0/ilog.odms.studio.help/Optimization_Studio/topics/COS_home.html">Knowledge Center
+zu IBM ILOG CPLEX Optimization Studio Version 12.8.0</a> verfügbar. </p>
+
+<HR>
+<h2><a name="productsupport">Produktunterstützung</a></h2>
+<p>Unterstützung, Tipps und Produktnews finden Sie auf der
+<a href="https://www.ibm.com/mysupport/s/topic/0TO50000000226IGAQ/ilog-cplex-optimization-studio?productId=01t50000004XFugAAG">Supporthomepage</a>.</p>
+
+<HR>
+<h2><a name="developer_works">developerWorks</a></h2>
+<p>Im ILOG-Optimization-Forum auf <a href="https://www.ibm.com/developerworks/community/forums/html/category?id=33333333-0000-0000-0000-000000000260">developerWorks</a> können Sie sich an technischen
+Diskussionen beteiligen. Treten Sie <a href="https://www.ibm.com/developerworks/mydeveloperworks/groups/service/html/communityview?communityUuid=3a298dfa-4726-466f-9cee-cbc6221b8bba">hier</a> der ILOG-Optimization-Community bei. </p>
+
+<HR>
+<h2><a name="sys_reqs">Systemvoraussetzungen</a></h2>
+<p>Informationen zu Systemvoraussetzungen und Plattformen finden Sie unter
+<a href="https://www-304.ibm.com/support/docview.wss?uid=swg27019100">Detailed System Requirements for IBM ILOG CPLEX Optimization Studio</a>.</p>
+
+
+<HR>
+<h2><a name="install_win">Installation unter Windows</a></h2>
+<p>Unter Windows ist die Standardinstallationsposition von IBM ILOG CPLEX Optimization Studio folgende:</br>
+<code>C:\Program Files\IBM\ILOG\CPLEX_Studio128</code></p>
+<p>Installationsposition für die Community Edition:</br>
+<code>C:\Program Files\IBM\ILOG\CPLEX_Studio_Community128</code></p>
+
+<p>Möglicherweise haben Sie während der Installation eine andere Position (<code>[Installationsverzeichnis]</code>) ausgewählt.</p>
+
+<h4>IDE</h4>
+<p>Sie können die integrierte Entwicklungsumgebung (IDE) über einen Eintrag im Menü "Start" starten:</p>
+
+<p>
+<b>Start &gt; Alle Programme &gt; CPLEX Optimization Studio 12.8.0 &gt; CPLEX Studio IDE</b></p>
+
+Community Edition: 
+
+<p>
+<b>Start &gt; Alle Programme &gt; CPLEX Optimization Studio Community Edition 12.8.0 &gt; CPLEX Studio IDE</b></p>
+
+<h4>Weitere Informationen</h4>
+<p>Weitere Informationen zu CPLEX auf Windows-Plattformen finden Sie
+in der Datei <code>[Installationsverzeichnis]\cplex\readmeWindows.html</code>.</p>
+
+<p>Weitere Informationen zum CP Optimizer auf Windows-Plattformen finden Sie in der Datei <code>[Installationsverzeichnis]\cpoptimizer\readmeWindows.html</code>.</p>
+
+<HR>
+<h2><a name="install_x">Installation unter AIX und Linux</a></h2>
+<p>Die Installationsprogramme für AIX und Linux sind ausführbare Dateien. Zum Starten einer Installation benötigen Sie Ausführungsberechtigung
+für diese Dateien, die Sie über die Befehlszeile starten müssen. Setzen Sie beispielsweise den Befehl <code>./&lt;Installationsprogramm&gt;.bin</code> ab.
+Hier steht <code>&lt;Installationsprogramm&gt;</code> für den Namen des Installationsprogramms. 
+Mit dem Befehl <code>chmod u+x &lt;Installationsprogramm&gt;.bin</code> können Sie die Ausführungsberechtigung für die Datei erteilen.</p>
+<p>Unter AIX ist die Standardinstallationsposition von IBM ILOG CPLEX Optimization Studio folgende:</br>
+<code>/opt/IBM/ILOG/CPLEX_Studio[Edition]128</code></p>
+<p>Unter Linux ist die Standardinstallationsposition von IBM ILOG CPLEX Optimization Studio folgende:</br>
+<code>/opt/ibm/ILOG/CPLEX_Studio[Edition]128</code></p>
+<p><code>[Edition]</code> kann folgende Werte annehmen:</br>
+   * <code>Community</code> für die Community Edition</br>
+   * leer für die kommerzielle Standardedition</p>
+<p>Möglicherweise haben Sie während der Installation eine andere Position (<code>[Installationsverzeichnis]</code>) ausgewählt.</p>
+
+<h4>IDE</h4>
+<p>Sie können die IDE von einem Linux-Terminal starten.</br>
+1. Öffnen Sie ein Terminalfenster.</br>
+2. Rufen Sie das Verzeichnis <code>[Installationsverzeichnis]/opl/oplide</code> auf.</br>
+3. Geben Sie den Befehl <code>./oplide</code> ein.</p>
+
+<p>Geben Sie alternativ an einer beliebigen Terminalposition den absoluten Pfad ein:</br>
+<code>[Installationsverzeichnis]/opl/oplide/oplide</code></p>
+
+<h4>Weitere Informationen</h4>
+<p>Weitere Informationen zu CPLEX finden Sie in der Datei
+<code>[Installationsverzeichnis]/cplex/readmeUNIX.html</code>.</p>
+
+<p>Weitere Informationen zum CP Optimizer finden Sie in der Datei <code>[Installationsverzeichnis]/cpoptimizer/readmeUNIX.html</code>.</p>
+
+<HR>
+<h2><a name="install_macos">Installation unter Mac OS</a></h2>
+<p>Unter Mac OS ist die Standardinstallationsposition von IBM ILOG CPLEX Optimization Studio folgende:</br>
+<code>/Applications/CPLEX_Studio128</code></p>   
+<p>Installationsposition für die Community Edition:</br>
+<code>/Applications/CPLEX_Studio_Community128</code></p>
+<p>Möglicherweise haben Sie während der Installation eine andere Position (<code>[Installationsverzeichnis]</code>) ausgewählt.</p>
+
+<b>Wichtige Informationen</b>
+<p>Dieses Produkt erfordert Java SE Development Kit 8 für Mac OS X.</p>
+<p>Klicken Sie für Installationsanweisungen unten auf den Link. </p>
+<a href="http://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html">
+Installation von JDK 8 für OS X</a>
+<p>Klicken Sie für den Downloadzugriff auf Java SE Development Kit 8 unten auf den Link. </p>
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+Java SE Development Kit 8 - Mac OS X</a>
+<p>Wenn die Anweisungen nicht angezeigt werden, überprüfen Sie, ob ein Standard-Web-Browser definiert ist. </p>
+
+<h4>IDE</h4>
+<p>Sie können die IDE vom Launchpad aus starten. Klicken Sie auf das Symbol <b>IDE</b> im Ordner <b>CPLEX_Studio128 (Other)</b> oder
+im Ordner <b>CPLEX_Studio_Community128 (Other)</b>. </p>
+
+<h4>Weitere Informationen</h4>
+<p>Weitere Informationen zu CPLEX finden Sie in der Datei
+<code>[Installationsverzeichnis]/cplex/readmeUNIX.html</code>.</p>
+<p>Weitere Informationen zum CP Optimizer finden Sie in der Datei <code>[Installationsverzeichnis]/cpoptimizer/readmeUNIX.html</code>.</p>
+
+<HR>
+<h2><a name="silentinstall">Unbeaufsichtigte Installation von CPLEX Optimization Studio</a></h2>
+<p>Lesen Sie das Dokument
+<a href ="http://www-01.ibm.com/support/knowledgecenter/SSSA5P_12.8.0/ilog.odms.studio.help/Optimization_Studio/topics/td_silent_install.html">
+<i>Unbeaufsichtigte Installation von CPLEX Optimization Studio</a></i>.</p>
+
+<HR>
+<h2><a name="uninstall">CPLEX Optimization Studio deinstallieren</a></h2>
+<p>Lesen Sie das Dokument <a href="http://www-01.ibm.com/support/knowledgecenter/SSSA5P_12.8.0/ilog.odms.studio.help/Optimization_Studio/topics/td_uninstall.html"><i>CPLEX Optimization Studio deinstallieren</i></a>. </p>
+ 
+<HR>
+<h2><a name="issuesaddressed">In Version 12.8.0 behobene Probleme</a></h2>
+ <p>Informieren Sie sich anhand des Dokuments
+<a href ="http://www-01.ibm.com/support/docview.wss?uid=swg27044365">
+<i>ILOG CPLEX Optimization Studio Fix List</a></i>.</p>
+<p>IBM ILOG CPLEX Optimization Studio Licensed Materials - Property of IBM. (C) Copyright IBM Corp. 1987, 2017. All Rights Reserved. IBM, das IBM Logo, ibm.com, WebSphere, ILOG, und CPLEX sind Marken oder eingetragene Marken der IBM Corporation in den USA und/oder anderen Ländern. Linux ist eine eingetragene Marke von Linus Torvalds in den USA und/oder anderen Ländern. Microsoft und Windows
+sind Marken der Microsoft Corporation in den USA und/oder anderen Ländern. Java&trade; und alle auf Java basierenden Marken und Logos sind Marken oder eingetragene Marken der Oracle Corporation und/oder ihrer verbundenen Unternehmen. Weitere Unternehmens-, Produkt- oder Servicenamen können Marken oder Servicemarken anderer Hersteller sein.
+</p>
+</body>
+</html>

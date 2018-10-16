@@ -1,0 +1,15 @@
+@import "../../styles/global.less";
+
+:local(.hoverable) {
+  cursor: pointer;
+  background-color: @navbar-inverse-bg!important;
+  color: @navbar-inverse-color!important;
+  &:hover {
+    background-color: @navbar-inverse-bg!important;
+    color: @navbar-inverse-link-hover-color!important;
+  }
+  &:active {
+    background-color: @navbar-inverse-bg!important;
+    color: @navbar-inverse-link-active-color!important;
+  }
+}

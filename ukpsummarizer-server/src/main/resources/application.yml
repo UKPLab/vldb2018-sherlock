@@ -1,0 +1,21 @@
+spring:
+  data:
+    rest:
+      returnBodyOnCreate: true
+      returnBodyOnUpdate: true
+#  datasource:
+#    url: jdbc:mysql://localhost/cascade
+#    username: cascade
+#    password: ${DB_PASS}
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+
+ukpsummarizer:
+  python:
+    bin: python
+  datadir: ${user.home}/.ukpsummarizer
+  casum:
+    os: ${os.name}
+    workdir: ${user.dir}/ukpsummarizer-be/
+

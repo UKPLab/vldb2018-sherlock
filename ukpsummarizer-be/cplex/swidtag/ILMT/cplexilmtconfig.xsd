@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CPLEX Optimization Studio SLM tag Configuration File, version 1.0 -->
+<!-- Copyright IBM Corporation 2014. All Rights Reserved. -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="CPLEX_Studio_ILMT_Configuration">
+  <xsd:annotation>
+    <xsd:documentation>
+      This schema defines the format for configuration files used to write CPLEX ILMT SLMtag files
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType>
+    <xsd:all>
+      <xsd:element name="Location" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="InstanceID" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="LicenseMetric" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="LogPeriod" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MaximumFileSize" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MaximumFileCount" minOccurs="0" maxOccurs="1"/>
+    </xsd:all>
+  </xsd:complexType>
+</xsd:element>
+
+<xsd:element name="Location" >
+  <xsd:annotation>
+    <xsd:documentation>
+      This required element specifies the path of the folder or directory where the SLMtag 
+      database and tag files should be written. Environment variables may be specified by
+      referencing them as $(env_var) where "env_var" is the name of the variable.  The value
+      of the environment variable will be substituted into the path.
+      
+      The values below will work on most systems.  Check with your system administrator.
+      $(ALLUSERSPROFILE)\IBM\CPLEX_Studio\ILMT for Windows systems.
+      /var/tmp/IBM/CPLEX_Studio/ILMT for Unix/Linux systems.
+            
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType>
+    <xsd:restriction base="xsd:string">
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:element>
+  
+<xsd:element name="InstanceID" >
+  <xsd:annotation>
+    <xsd:documentation>
+      This optional element specifies the name of the instance of CPLEX.
+      The name can be a path but must use "/" as the separator.  The name should only contain 
+      alphanumeric characters and the following characters _-.:/ and note that blanks are 
+      not allowed.
+
+    </xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[a-zA-Z0-9/_][a-zA-Z0-9/_:.\-]*"/>  
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:element>
+ 
+<xsd:element name="LicenseMetric">
+  <xsd:simpleType>
+    <xsd:annotation>
+      <xsd:documentation>
+        This required element specifies the license metric to be tracked.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AUTHORIZED_USER"/>
+      <xsd:enumeration value="FLOATING_USER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:element>
+
+<xsd:element name="LogPeriod" type="xsd:positiveInteger">
+  <xsd:annotation>
+    <xsd:documentation>
+       This optional element specifies the period between writing SLMtag files compiled from entries in the database.
+    </xsd:documentation>
+  </xsd:annotation>
+</xsd:element>
+  
+<xsd:element name="MaximumFileSize" type="xsd:positiveInteger">
+  <xsd:annotation>
+    <xsd:documentation>
+      This optional element specifies the size that will trigger a writing of a new SLMtag file.
+    </xsd:documentation>
+  </xsd:annotation>
+</xsd:element>
+
+<xsd:element name="MaximumFileCount" type="xsd:positiveInteger">
+  <xsd:annotation>
+    <xsd:documentation>
+      This optional specifies the number of SLMtag files to keep per database.  
+    </xsd:documentation>
+  </xsd:annotation>
+</xsd:element>
+  
+</xsd:schema>

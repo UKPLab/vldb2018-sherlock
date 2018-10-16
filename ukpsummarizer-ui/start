@@ -1,0 +1,13 @@
+#!/bin/sh
+
+NPM_BIN="${PWD}/node/npm"
+if [[ -z $NODE_DIR ]]; then
+  NPM_BIN=npm
+fi
+
+args=$@
+if [ $# -lt 1 ]; then
+  args="start:dev"
+fi
+
+exec "$NPM_BIN" run $args

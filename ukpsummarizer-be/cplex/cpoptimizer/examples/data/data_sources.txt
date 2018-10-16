@@ -1,0 +1,32 @@
+Several CP Optimizer examples use data taken from the academic
+literature.  The sources of the data are listed here.  For examples
+where the data is embedded in the the code itself and not read from
+a file, the relevant citation is given in the source of the example.
+
+goalprog_8_40_0.6_3.data
+	R. Sadykov and L. Wolsey.  Integer programming and constraint
+	programming in solving a multi-machine scheduling problem with
+	deadlines and release dates.  INFORMS Journal on
+	Computing 18(2):209-217, 2006.
+
+rcpsp_j120_1_2.data
+rcpsp_j120_22_6.data
+rcpsp_j120_2_9.data
+rcpsp_j120_32_8.data
+rcpsp_j120_41_5.data
+rcpsp_j30_5_6.data
+rcpspmm_j30_12_8.data
+rcpspmm_j30_17_7.data
+rcpspmm_j30_27_6.data
+rcpspmm_j30_46_1.data
+rcpspmm_j30_62_10.data
+	R. Kolisch and A. Sprecher.  PSPLIB - A project scheduling problem
+	library.  European Journal of Operational Research 96:205-216, 1996.
+	Data available at:
+                http://129.187.106.231/psplib/
+
+rehearsal.data
+ 	Barbara M. Smith.  Constraint Programming In Practice: Scheduling
+	a Rehearsal.  Report APES-67-2003, September 2003.
+	Available at:
+		http://www.comp.leeds.ac.uk/bms/papers.html

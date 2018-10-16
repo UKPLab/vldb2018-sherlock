@@ -1,0 +1,28 @@
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+        boot: DEBUG
+        cache: TRACE
+      hibernate: INFO
+    net:
+      dataexpedition: TRACE
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/cascade
+    username: cascade
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+ukpsummarizer:
+  python:
+    bin: C:/bin/python2713/python.exe
+  datadir: ${user.home}/.ukpsummarizer
+  casum:
+    os: ${os.name}
+    workdir: ${user.dir}/ukpsummarizer-be/

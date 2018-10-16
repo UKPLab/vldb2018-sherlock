@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Using parameters" />
+<meta name="abstract" content="Parameters, accessible and manageable by users, control the behavior of CPLEX." />
+<meta name="Description" content="Parameters, accessible and manageable by users, control the behavior of CPLEX." />
+<meta name="DC.Relation" scheme="URI" content="../topics/gs.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-08-29" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="gs_param" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href=".././ibmdita.css" />
+<link rel="stylesheet" type="text/css" href=".././swg_info_common_opti.css" />
+<link rel="Start" href="../topics/gs.html" />
+<title>Using parameters</title>
+</head>
+<body id="gs_param"><div role="main">
+<h1 class="title topictitle1">Using parameters</h1>
+<div class="body"><p class="shortdesc">Parameters, accessible and manageable by users, control
+the behavior of CPLEX®. </p>
+<p class="p">Though the default settings for CPLEX will
+prove sufficient to solve most problems, CPLEX offers a variety of parameters to control
+various algorithmic choices. The methods for accessing and setting
+parameters differs based on which API you are using.</p>
+<p class="p">In the CPLEX for MATLAB Optimization Toolbox, parameters are managed
+as an options structure. This structure can be passed as an argument
+to any of the toolbox methods for solving optimization problems. An
+options structure is created using the method <samp class="ph codeph">cplexoptimset</samp>.
+The values of the parameters in the options structure can be accessed
+with the method <samp class="ph codeph">cplexoptimset</samp>. Once the structure
+has been created, the parameter fields of the structure can be updated
+directly.</p>
+<div class="p">For example, to set a node limit of 400 and instruct CPLEX to use
+traditional branch and cut style search, you can use either of the
+following: <pre class="pre codeblock"><code>options = cplexoptimset('mip.limits.nodes', 400, 'mip.strategy.search', 1);</code></pre>
+or<pre class="pre codeblock"><code>opt = cplexoptimset('cplex'); 
+opt.mip.limits.nodes=400; 
+opt.mip.strategy.search=1;</code></pre>
+</div>
+<div class="p">In order to provide compatibility, the CPLEX for MATLAB Optimization
+Toolbox also accepts the parameters that are used with the MATLAB
+Optimization Toolbox. These "compatibility parameters" are listed
+in the reference manual entry for <samp class="ph codeph">cplexoptimset</samp>;
+listed there are the CPLEX parameters that are equivalent to these
+compatibility parameters. As an example of using these parameters,
+to turn on the optimizer output and set a node limit of 400 using
+the compatibility parameters, you can write:<pre class="pre codeblock"><code>options = cplexoptimset('Display', 'on', 'MaxNodes', 400);</code></pre>
+</div>
+<div class="p">Three parameters that are available in the CPLEX for MATLAB Optimization
+Toolbox do not have equivalents in the other CPLEX APIs. These are:<ul class="ul"><li class="li"> The parameter <samp class="ph codeph">ExportModel</samp> (or <samp class="ph codeph">exportmodel</samp>)	
+takes a file name as an argument. The default is the empty string
+(<samp class="ph codeph">""</samp>). For example, <samp class="ph codeph">opt = cplexoptimset('exportmodel',
+'myModel.lp');</samp> can be used to set the name of the exported
+model.</li>
+<li class="li">The parameter <samp class="ph codeph">Display</samp>	controls the level of display
+and takes the following values: <samp class="ph codeph">'off' | 'on' | 'iter'</samp>.</li>
+<li class="li">The parameter <samp class="ph codeph">Algorithm</samp> takes the values:	<samp class="ph codeph">'interior-point'
+| 'primal' | 'dual' | 'auto'</samp>.</li>
+</ul>
+</div>
+<p class="p">In the Cplex Class API, the structure <samp class="ph codeph">Cplex.Param</samp> is
+provided for managing parameters Each parameter is a field of the <samp class="ph codeph">Cplex.Param</samp> structure.
+In turn, each field is a structure with six fields, as described in
+the reference manual entry for <samp class="ph codeph">Cplex.Param</samp>.</p>
+<div class="p">For example, to set a node limit of 400 and instruct CPLEX to use
+traditional branch and cut style search, you use:<pre class="pre codeblock"><code>cplex.Param.mip.limits.nodes.Cur=400;
+cplex.Param.mip.strategy.search.Cur=1;</code></pre>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/gs.html" title="As you install and get started using CPLEX for MATLAB, you can refer to this guide for more information on installation, licensing, and integration with MATLAB.">Getting started with CPLEX for MATLAB</a></div>
+</div>
+</div></div></body>
+</html>

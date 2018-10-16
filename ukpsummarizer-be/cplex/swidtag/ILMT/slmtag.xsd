@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ibm.com/xml/ns/licensemetrics" 
+	xmlns="http://www.ibm.com/xml/ns/licensemetrics"
+	elementFormDefault="qualified" version="2.1.1">
+	
+	<xs:annotation>
+		<xs:documentation>
+			This schema defines license metric tag format.
+		</xs:documentation>
+	</xs:annotation>
+
+	<xs:simpleType name="SchemaVersionType">
+		<xs:annotation>
+			<xs:documentation>
+				Identifies version of SLM tag file.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]+(.[0-9]+)*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="SoftwareIdentityType">
+		<xs:annotation>
+			<xs:documentation>
+				Identifies software identity that provides
+				metrics.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"/>			
+			<xs:element name="PersistentId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="InstanceId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="PeriodType">
+		<xs:annotation>
+			<xs:documentation>
+				Indicates period when metric applies.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="StartTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="EndTime" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="MetricType">
+		<xs:annotation>
+			<xs:documentation>
+				License metric consumed by instance of software
+				identity.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="Type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SubType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Value" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Period" type="PeriodType" minOccurs="1" maxOccurs="1"/>
+		</xs:all>
+		<xs:attribute name="logTime" type="xs:dateTime" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="LicenseMetricsType">
+		<xs:annotation>
+			<xs:documentation>
+				Root element type.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SchemaVersion" type="SchemaVersionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SoftwareIdentity" type="SoftwareIdentityType" minOccurs="1" maxOccurs="1"/>
+			<xs:sequence>
+				<xs:element name="Metric" minOccurs="1" maxOccurs="unbounded"
+					type="MetricType" />
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="LicenseMetrics" type="LicenseMetricsType" />
+
+</xs:schema>

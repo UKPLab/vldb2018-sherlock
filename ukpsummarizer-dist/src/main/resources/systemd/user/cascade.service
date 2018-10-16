@@ -1,0 +1,10 @@
+[Unit]
+Description=Sherlock server
+After=syslog.target network.target
+
+[Service]
+WorkingDirectory=/srv/sherlock/
+ExecStart=/usr/lib/jvm/java-8-oracle/bin/java -jar /srv/sherlock/bin/ukpsummarizer-server.jar
+
+[Install]
+WantedBy=multi-user.target

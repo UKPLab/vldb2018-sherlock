@@ -1,0 +1,2 @@
+include requirements.txt
+include ${python.module.setup.name}/*.proto

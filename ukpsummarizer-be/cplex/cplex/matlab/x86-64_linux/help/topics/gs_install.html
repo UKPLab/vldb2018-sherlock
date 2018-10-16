@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Setting up CPLEX for MATLAB" />
+<meta name="abstract" content="Install and configure IBM ILOG CPLEX Optimization Studio before you use the CPLEX connector for MATLAB." />
+<meta name="Description" content="Install and configure IBM ILOG CPLEX Optimization Studio before you use the CPLEX connector for MATLAB." />
+<meta name="DC.Relation" scheme="URI" content="../topics/gs.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-08-29" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="o31CQaCS" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href=".././ibmdita.css" />
+<link rel="stylesheet" type="text/css" href=".././swg_info_common_opti.css" />
+<link rel="Start" href="../topics/gs.html" />
+<title>Setting up CPLEX for MATLAB</title>
+</head>
+<body id="o31CQaCS"><div role="main">
+<h1 class="title topictitle1">Setting up CPLEX for
+MATLAB</h1>
+<div class="body"><p class="shortdesc">Install and configure IBM® ILOG® CPLEX® Optimization Studio before you use the CPLEX connector for MATLAB.</p>
+<p class="p"></p>
+<div class="section"><h2 class="title sectiontitle">Install CPLEX</h2><p class="p">Before you begin to use the CPLEX connector for MATLAB, you
+must first install and configure CPLEX Optimization
+Studio and CPLEX Optimizer. </p>
+<p class="p">By default, the CPLEX Optimization Studio installer automatically installs the CPLEX connector
+for MATLAB in a standard location. For instance, the installation directory for CPLEX for MATLAB for
+a Windows 64-bit operating system is <span class="ph filepath">yourCOShome\cplex\matlab\x64_win64</span>, where
+<span class="ph filepath">yourCOShome</span> specifies the folder where CPLEX Optimization Studio is installed.
+Other platforms have similar installation directories, named appropriately.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Verify the service pack</h2><p class="p">When CPLEX Optimization Studio is installed on Windows
+operating systems, the appropriate Microsoft Visual C++
+Redistributable Package must also be installed. This package installs runtime components of
+Visual C++ Libraries that are required to run applications that are developed with Visual C++
+on a computer that does not have Visual C++ installed. If the CPLEX Optimization Studio
+installer detects that this package is not already installed, the installer explains how to download
+the service pack manually. For more information, see the Detailed System Requirements (DSR).</p>
+ </div>
+<div class="section"><h2 class="title sectiontitle">Configure MATLAB</h2><p class="p">To configure MATLAB to use CPLEX, you must first add the CPLEX connector for MATLAB installation
+folder to your MATLAB path by using the MATLAB <span class="ph filepath">addpath</span> command. For instance,
+the installation directory for 64-bit Windows is
+<span class="ph filepath">yourCOShome\cplex\matlab\x64_win64</span>, where <span class="ph filepath">yourCOShome</span>
+specifies the folder where CPLEX Optimization Studio is installed. In addition, add the folder
+<span class="ph filepath">yourCOShome\cplex\examples\src\matlab</span> in the same manner to support
+navigational links to examples in the online help from within a MATLAB session.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/gs.html" title="As you install and get started using CPLEX for MATLAB, you can refer to this guide for more information on installation, licensing, and integration with MATLAB.">Getting started with CPLEX for MATLAB</a></div>
+</div>
+</div></div></body>
+</html>

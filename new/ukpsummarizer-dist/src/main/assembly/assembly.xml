@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>bin</id>
+    <formats>
+        <format>tar</format>
+        <!--<format>dir</format>-->
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <moduleSets>
+        <moduleSet>
+
+            <!-- Enable access to all projects in the current multimodule build! -->
+            <useAllReactorProjects>true</useAllReactorProjects>
+
+            <!-- Now, select which projects to include in this module-set. -->
+            <includes>
+                <include>net.dataexpedition:ukpsummarizer-server</include>
+                <!--<include>net.dataexpedition:ukpsummarizer-data-protobuf</include>-->
+                <!--<include>net.dataexpedition:ukpsummarizer-data-swagger</include>-->
+            </includes>
+            <binaries>
+                <unpack>false</unpack>
+                <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+
+                <!--<outputDirectory>server</outputDirectory>-->
+                <!-- <includes> -->
+                <!-- <include>de.fhg.igd.iva:vcst-bmw-bridge-application:ear</include> -->
+                <!-- </includes> -->
+                <includeDependencies>false</includeDependencies>
+            </binaries>
+        </moduleSet>
+    </moduleSets>
+    <fileSets>
+        <fileSet>
+            <directory>../ukpsummarizer-be</directory>
+            <outputDirectory>ukpsummarizer-be</outputDirectory>
+            <excludes>
+                <exclude>.venv/</exclude>
+                <exclude>.venv2/</exclude>
+                <exclude>*.pyc</exclude>
+                <exclude>*.iml</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+</assembly>

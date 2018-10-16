@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CPLEX_Studio_ILMT_Configuration version="1.0">
+  <LicenseMetric>FLOATING_USER</LicenseMetric>
+  <Location>/var/tmp/IBM/CPLEX_Studio/ILMT</Location>
+</CPLEX_Studio_ILMT_Configuration>

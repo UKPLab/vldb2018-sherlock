@@ -1,0 +1,69 @@
+@import "~video.js/dist/video-js.css";
+@import "../../styles/global.less";
+
+.video-js {
+  //width: 100%;
+}
+
+//
+///* The "Big Play Button" is the play button that shows before the video plays.
+//   To center it set the align values to center and middle. The typical location
+//   of the button is the center, but there is trend towards moving it to a corner
+//   where it gets out of the way of valuable content in the poster image.*/
+//.vjs-default-skin .vjs-big-play-button {
+//  /* The font size is what makes the big play button...big.
+//     All width/height values use ems, which are a multiple of the font size.
+//     If the .video-js font-size is 10px, then 3em equals 30px.*/
+//  font-size: 3em;
+//  /* We're using SCSS vars here because the values are used in multiple places.
+//     Now that font size is set, the following em values will be a multiple of the
+//     new font size. If the font-size is 3em (30px), then setting any of
+//     the following values to 3em would equal 30px. 3 * font-size. */
+//  /* 1.5em = 45px default */
+//  line-height: 1.5em;
+//  height: 1.5em;
+//  width: 3em;
+//  /* 0.06666em = 2px default */
+//  border: 0.06666em solid #fff;
+//  /* 0.3em = 9px default */
+//  border-radius: 0.3em;
+//  /* Align center */
+//  left: 50%;
+//  top: 50%;
+//  margin-left: -1.5em;
+//  margin-top: -0.75em;
+//}
+
+/* Change all text and icon colors in the player. */
+.vjs-cascade.video-js {
+  //color: #00ff00;
+}
+
+/* Change the border of the big play button. */
+.vjs-cascade .vjs-big-play-button {
+  &:extend(.btn-primary, .btn-lg);
+  //border-color: #00ff00;
+  left: 50%;
+  top: 50%;
+  padding: 0 0 0 0;
+
+  box-shadow: 0 0 20px #000000;
+
+  &,
+  &:focus,
+  &.focus {
+    .tab-focus();
+  }
+
+}
+
+/* Change the color of various "bars". */
+.vjs-cascade .vjs-volume-level,
+.vjs-cascade .vjs-play-progress,
+.vjs-cascade .vjs-slider-bar {
+  //background: #00ff00;
+}
+
+.vjs-cascade .vjs-paused {
+
+}

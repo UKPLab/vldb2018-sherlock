@@ -1,0 +1,10 @@
+[Unit]
+Description=Cascade server
+After=syslog.target network.target
+
+[Service]
+WorkingDirectory=/srv/cascade/
+ExecStart=/usr/lib/jvm/java-8-oracle/bin/java -jar /srv/cascade/bin/ukpsummarizer-server.jar
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Example: cplexmilpex.m" />
+<meta name="abstract" content="This example uses the function cplexmilp to solve a mixed-integer linear programming model." />
+<meta name="Description" content="This example uses the function cplexmilp to solve a mixed-integer linear programming model." />
+<meta name="DC.Relation" scheme="URI" content="../topics/examples_toolbox.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-08-29" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="EAXv65Bu" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href=".././ibmdita.css" />
+<link rel="stylesheet" type="text/css" href=".././swg_info_common_opti.css" />
+<link rel="Start" href="../topics/examples_toolbox.html" />
+<title>Example: cplexmilpex.m</title>
+</head>
+<body id="EAXv65Bu"><div role="main">
+<h1 class="title topictitle1">Example: cplexmilpex.m</h1>
+<div class="body"><p class="shortdesc">This example uses the function <samp class="ph codeph">cplexmilp</samp> to
+solve a mixed-integer linear programming model.</p>
+<p class="p">The MILP problem solved in this example is:</p>
+<pre class="pre codeblock"><code>    Maximize  x1 + 2 x2 + 3 x3 + x4
+    Subject to
+       - x1 +   x2 + x3 + 10 x4 &lt;= 20
+         x1 - 3 x2 + x3         &lt;= 30
+                x2      - 3.5x4  = 0
+    Bounds
+         0 &lt;= x1 &lt;= 40
+         0 &lt;= x2
+         0 &lt;= x3
+         2 &lt;= x4 &lt;= 3
+    Integers
+        x4</code></pre>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/examples_toolbox.html" title="These examples illustrate the usage of toolbox functions to solve mathematical programming problems.">Examples of the CPLEX for MATLAB Toolbox</a></div>
+</div>
+</div></div></body>
+</html>

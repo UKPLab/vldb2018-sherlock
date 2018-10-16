@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<TITLE>IBM ILOG CPLEX Optimization Studio 12.8.0 README (CP Optimizer component)</TITLE>
+	<STYLE>
+	<!--
+		H1 { font-family: "arial", "sans-serif"; color: #406ec1 }
+		H2 { font-family: "arial", "sans-serif"; color: #406ec1 }
+		H3 { font-family: "arial", "sans-serif"; color: #406ec1 }
+		H4 { font-family: "arial", "sans-serif"; color: #406ec1 }
+		HR { color: #406ec1}
+		CODE { font-family: "courier", "courier-new", "serif"; font-size: 12pt}
+		BODY { font-family: "arial", "sans-serif" }
+		TH { background-color: #CCCCFF; font-family: "arial" }
+		TD { font-family: "arial", "sans-serif" }
+		P { font-family: "arial", "sans-serif" }
+		A { font-family: "arial", "sans-serif" }
+		PRE { font-family: "arial", "sans-serif" }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<H1>IBM ILOG CPLEX Optimization Studio 12.8.0 (CP Optimizer component)</H1>
+<P>
+This is the CP Optimizer 12.8.0 distribution, including Concert Technology.
+Please read the CP Optimizer 12.8.0 Release Notes for news on this version of CP Optimizer.
+<HR>
+<H2>Directory Structure</H2>
+The following sub-directories (and this file), are contained in the
+directory where you installed CP Optimizer 12.8.0.</P>
+<H4>In the <CODE>cpoptimizer</CODE> directory:</H4>
+<PRE>
+  <CODE>bin/&lt;machine&gt;</CODE>:
+        CP Optimizer shared libraries for Java (through JNI).  The name
+        of the shared library is <CODE>libcp_wrap_cpp_java1280.so</CODE>
+        on most versions of UNIX, and
+        <CODE>libcp_wrap_cpp_java1280.jnilib</CODE> on Mac OS X.<BR>
+  <CODE>examples/src/cpp</CODE>:
+	Source files for the C++ examples.<BR>
+  <CODE>examples/src/java</CODE>:
+	Source files for the Java examples.<BR>
+  <CODE>examples/&lt;machine&gt;/&lt;libformat&gt;</CODE>:
+	Platform-specific <CODE>makefile</CODE> for building and executing examples.<BR>
+  <CODE>include/ilcp</CODE>:
+	Header files, such as <CODE>cp.h</CODE> and <CODE>cpext.h</CODE>,
+        that are needed to compile C++ applications.<BR>
+  <CODE>lib</CODE>:
+	The <CODE>ILOG.CP.jar</CODE> file containing the Java classes
+        needed to use the Java version of CP Optimizer.<BR>
+  <CODE>lib/&lt;machine&gt;/&lt;libformat&gt;</CODE>:
+	CP Optimizer library file for C++ users (<CODE>libcp.a</CODE>)
+</PRE>
+<H4>In the <CODE>concert</CODE> directory:</H4>
+<PRE>
+  <CODE>include/ilconcert</CODE>:
+	Header files, such as <CODE>ilomodel.h</CODE>,
+        that are needed to compile C++ applications.<BR>
+  <CODE>lib/&lt;machine&gt;/&lt;libformat&gt;</CODE>:
+	Concert Technology libraries for C++ users (<CODE>libconcert.a</CODE>).
+</PRE>
+<HR>
+<H2>Compiling and Executing examples</H2>
+<PRE>
+To compile and execute examples, do the following:
+	<CODE>% cd examples/&lt;machine&gt;/&lt;libformat&gt;</CODE>
+	<CODE>% make color</CODE>
+to compile a simple C++ CP Optimizer example
+</PRE>
+
+<P>A list of all the available examples can be found in the file <CODE>examples/&lt;machine&gt;/&lt;libformat&gt;/makefile</CODE>:
+   or you can view the files listed in <CODE>examples/src/cpp</CODE> and <CODE>examples/src/java</CODE>.<BR>
+   The makefile also contains recommended C++ compiler flags and other settings for building applications on your particular
+   computer and shows how to set the locations of the CP Optimizer JNI shared library and the <CODE>ILOG.CP.jar</CODE>
+   file used from Java.
+
+<PRE>
+In the directory <CODE>examples/&lt;machine&gt;/&lt;libformat&gt;</CODE> you can do:
+	<CODE>% make all</CODE>		to compile all examples
+	<CODE>% make execute</CODE>		to compile and execute all examples
+	<CODE>% make execute_cpp</CODE>	to compile and execute only the C++ examples
+	<CODE>% make execute_java</CODE>	to compile and execute only the Java examples
+	<CODE>% make clean</CODE>		to remove executable files when you have finished
+</PRE>
+</P>
+<P> Note that to build and run the Java examples, you must first set your environment
+    variable <CODE>JAVA_HOME</CODE> to point to your installation of JDK.
+</P>
+
+<!-- <HR>
+<H2>Supported Platforms</H2>
+<P>
+Please consult <a href="mptable.html">mptable.html</a> for information on supported platforms and compilers.
+</P>
+-->
+<HR>
+<H2>Additional Information</H2>
+For additional information, visit the <a href="http://www.ibm.com/support/entry/portal/Overview/Software/WebSphere/IBM_ILOG_CPLEX_Optimization_Studio">product page</a>
+
+</BODY>
+</HTML>

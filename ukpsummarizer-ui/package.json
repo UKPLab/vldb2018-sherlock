@@ -1,0 +1,70 @@
+{
+  "name": "ukpsummarizer",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "Personalized summarization of multiple documents using intelligent user feedback interpretation and recommendation",
+  "main": "./src/main/javascript",
+  "scripts": {
+    "build": "webpack -p --config webpack/config.prod.js",
+    "build:dev": "webpack -d --config webpack/config.dev.js",
+    "start": "webpack-dev-server --inline --hot --config webpack/config.prod.js",
+    "start:dev": "webpack-dev-server --inline --hot --config webpack/config.dev.js"
+  },
+  "author": "Hendrik Lücke-Tieke",
+  "contributors": [
+    "Hendrik Lücke-Tieke"
+  ],
+  "license": "SEE LICENCE in LICENSE.md",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
+  "private": true,
+  "devDependencies": {
+    "babel-core": "6.13.2",
+    "babel-loader": "6.2.4",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-es2015": "6.13.2",
+    "babel-preset-react": "6.11.1",
+    "babel-preset-stage-0": "~6.24.1",
+    "css-loader": "0.23.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.9.0",
+    "html-webpack-plugin": "2.22.0",
+    "less": "2.7.1",
+    "less-loader": "2.2.3",
+    "morgan": "1.7.0",
+    "source-map-loader": "0.1.5",
+    "style-loader": "0.13.1",
+    "stylus-loader": "2.5.1",
+    "text-loader": "0.0.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  },
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "bootswatch": "3.3.7",
+    "font-awesome": ">=4.7.0",
+    "react": "15.5.4",
+    "react-bootstrap": "0.31.1",
+    "react-dom": "15.5.4",
+    "react-fontawesome": "1.2.0",
+    "react-image-lightbox": "4.1.0",
+    "react-json-pretty": "1.3.1",
+    "react-overlays": "0.7.0",
+    "react-panels": "2.5.1",
+    "react-redux": "4.4.5",
+    "react-router": "2.6.1",
+    "react-router-bootstrap": "0.23.1",
+    "react-router-redux": "4.0.5",
+    "redux": "3.5.2",
+    "redux-thunk": "2.1.0",
+    "redux-undo": "0.6.1",
+    "rest": "2.0.0",
+    "stylus": "0.54.5",
+    "video.js": "6.2.4"
+  }
+}
