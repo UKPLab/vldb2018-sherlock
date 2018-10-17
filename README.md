@@ -14,7 +14,7 @@ Prerequisites
 * glpk has to be installed and in the path
 * python in path
 
-## Setting up the system
+## Setting up the Sherlock UI 
 
 1. Install Anaconda
 2. Install virtual environment conda create -n .venv python=2.7
