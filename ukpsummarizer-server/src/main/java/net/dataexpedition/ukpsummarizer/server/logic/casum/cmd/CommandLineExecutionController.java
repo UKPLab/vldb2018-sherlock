@@ -36,7 +36,8 @@ public class CommandLineExecutionController {
         Path outputTempFile = Files.createTempFile("output", ".json");
         String arguments = " -out \"" + outputTempFile.toFile().getCanonicalPath() + "\" " +
                 "--iobasedir \"" + dataDir.getCanonicalPath() + "\" " +
-                " continue \"" + picklein.getCanonicalPath() + "\" " +
+                " continue " +
+                " --picklein \"" + picklein.getCanonicalPath() + "\" " +
                 " --pickleout \"" + pickleout.getCanonicalPath() + "\" " +
                 " --oracle_labels \"" + interactions.getCanonicalPath() + "\"";
 

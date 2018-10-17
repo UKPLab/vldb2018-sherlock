@@ -236,11 +236,15 @@ class SingleTopicRunner(object):
         preceding_size = len(
             flightrecorder.records)  # the number of iterations that happened due to the provided feedback_log
 
+
+        embeddings = None
+        """
         if preload_embeddings:
             embeddings_path = path.normpath(path.join(self.iobasedir, "embeddings"))
             embeddings = load_w2v_embeddings(embeddings_path, language, 'active_learning')
         else:
             embeddings = preload_embeddings
+        """
 
         if summary_idx is not None:
             summaries = [summaries[summary_idx]]
@@ -302,7 +306,7 @@ class SingleTopicRunner(object):
             clusters = None
 
             #TODO: Added summaries instead of one single summary
-            sf = SimulatedFeedback(language, self.rouge, embeddings=embeddings,
+            sf = SimulatedFeedback(language, self.rouge, embeddings=None,  #TODO: embeddings
                                    docs=docs, models=summaries,
                                    summary_length=use_size,
                                    oracle_type=oracle,
@@ -387,7 +391,7 @@ class SingleTopicRunner(object):
                 "config_oracle_type": oracle,
                 "config_summarizer_type": summarizer,
                 "config_parse_type": str(parser),
-                "config_wordembeddings": sf.embeddings.embedding_variant,
+                #"config_wordembeddings": emb_var,
                 "config_feedbackstore": sf.feedbackstore.get_config(),
                 "config_feedback_interpretation": {},
                 "config_concept_recommendation": {},
