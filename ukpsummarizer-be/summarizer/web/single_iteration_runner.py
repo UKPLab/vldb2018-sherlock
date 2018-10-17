@@ -8,6 +8,7 @@ import re
 from os import path
 
 import dill as pickle
+import dill as pickle
 import pandas as pd
 
 from algorithms.flight_recorder import FlightRecorder, Record
@@ -24,7 +25,7 @@ import random
 from performance_utils.mlogger import MeasurementLogger
 from performance_utils.timer import IterationTimer, RunTimer
 from performance_utils.mreader import MeasurementReader
-
+import threading
 
 def roundup(x):
     return int(math.ceil(x / 100.0)) * 100
@@ -127,25 +128,10 @@ def convert_to_json(sentences):
             "sent_id": s.position,
             "length": s.length,
             "tokens": s.tokens,
-            # "tokens_pos": s.tokens_pos,
             "phrases": s.phrases,
             "untokenized_phrases": s.raw_phrases
         }
         yield t
-        # log.info("doc %s, sent %s, with a length of %s" % (s.doc_id, s.position, s.length))
-        #
-        # log.info(s.concepts)
-        # log.info(s.untokenized_concepts)
-        #
-        # log.info(s.tokens)
-        # log.info(s.tokens_pos)
-        #
-        # log.info(s.phrases)
-        # # break
-        #
-        # if s.position > 4:
-        #     break
-
 
 class SingleTopicRunner(object):
     tlog = logging.getLogger("timings")
@@ -217,11 +203,13 @@ class SingleTopicRunner(object):
                                           exploratory_sentences)
 
         if pickleout is not None:
-            output = open(pickleout, 'wb')
-            # Pickle dictionary using protocol 0.
-            pickle.dump(sf, output)
-            output.close()
-            log.info("wrote pickle output to %s" % (pickleout))
+            self.pickle_write(sf, pickleout, log)
+
+    def pickle_write(self, sf, pickleout, log):
+        output = open(pickleout, 'wb')
+        pickle.dump(sf, output)
+        output.close()
+        log.info("### wrote pickle output to %s" % (pickleout))
 
     def run(self, topic_path, size=None, summarizer="SUME", summary_idx=None, parser=None,
             oracle="accept", feedback_log=None, propagation=False, max_iteration_count=10, preload_embeddings=None,
@@ -450,11 +438,9 @@ class SingleTopicRunner(object):
             log.debug(sf.log_info_data[-1])
             log.debug("----------------------------------------------")
             if self.pickle_store is not None:
-                output = open(self.pickle_store, 'wb')
-                log.info("Pickling simulated feedback to %s" % (self.pickle_store))
                 # Pickle dictionary using protocol 0.
-                pickle.dump(sf, output)
-                output.close()
+                print('Pickle in file %s' % self.pickle_store)
+                self.pickle_write(sf, self.pickle_store, log)
 
             json_content = self.write_summarize_output_json(sf, confirmatory_summary, derived_records, log,
                                                             recom_sentences, result, run_id, summarizer,

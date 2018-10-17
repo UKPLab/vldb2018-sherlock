@@ -1,8 +1,8 @@
 import pulp
 import numpy as np
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 from nltk.data import load as LPickle
 

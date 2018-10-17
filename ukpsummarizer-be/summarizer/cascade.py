@@ -175,9 +175,8 @@ if __name__ == '__main__':
 
     continuation_parser = subparsers.add_parser("continue",
                                                 help="Runs a single iteration on an existing (pickled) instance of the summarizer")
-    continuation_parser.add_argument("picklein", help="location of the pickled summarizer", type=str)
+    continuation_parser.add_argument("--picklein", help="location of the pickled summarizer", type=str)
     continuation_parser.add_argument("--feedback", help="location of the new feedback", type=str)
-    # continuation_parser.add_argument("--picklename", help="location of the new pickled summarizer", type=str)
     continuation_parser.add_argument("--pickleout", help="location where the result summarizer should be stored to",
                                      type=str)
     continuation_parser.add_argument("--oracle_labels", type=str,
@@ -194,11 +193,6 @@ if __name__ == '__main__':
     rouge_parser = subparsers.add_parser("rouge", help="Calculate the rouge scores given a file with plain text and a topic")
     rouge_parser.add_argument("reference", help="dataset, topic or modelsummary relative to the iobasedir", type=str)
     rouge_parser.add_argument("input", help="the file which contains the text to calc rouge for",type=str)
-
-
-
-
-
 
     args = parser.parse_args()
 
