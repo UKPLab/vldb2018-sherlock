@@ -125,7 +125,7 @@ if __name__ == '__main__':
                     required=False,
                     default=path.join(path.expanduser("~"), ".ukpsummarizer"))
 
-    io.add_argument('-out', '--output_filename', type=str, help="output file for JSON", default='~/.ukpsummarizer/tmp/output', required=False)
+    io.add_argument('-out', '--output_filename', type=str, help="output file for JSON", default='tmp/output', required=False)
     # io.add_argument('-fb', '--feedback', type=str, help="List of feedbacks to incorporate prior running any summarization.", default=None, required=False)
     io.add_argument('--scores_dir', type=str, help="scores dumping directory", default="scores_cascade", required=False)
     io.add_argument('--override_results', action='store_true',
@@ -198,6 +198,8 @@ if __name__ == '__main__':
 
     iobasedir = path.expanduser(path.normpath(args.iobasedir.replace("\"","")))
 
+    args.output_filename= path.join(iobasedir, args.output_filename)
+    log("Output file: %s" % (args.output_filename))
     if args.command == 'continue':
         log("continue !")
 
