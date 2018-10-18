@@ -198,7 +198,7 @@ if __name__ == '__main__':
 
     iobasedir = path.expanduser(path.normpath(args.iobasedir.replace("\"","")))
 
-    args.output_filename= path.join(iobasedir, args.output_filename)
+    #args.output_filename= path.join(iobasedir, args.output_filename)
     log("Output file: %s" % (args.output_filename))
     if args.command == 'continue':
         log("continue !")

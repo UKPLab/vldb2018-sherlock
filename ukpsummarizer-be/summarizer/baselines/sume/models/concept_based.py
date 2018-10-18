@@ -664,13 +664,14 @@ class ConceptBasedILPSummarizer(LoadFile):
         # solving the ilp problem
         # solving the ilp problem
         try:
-            #print('BASEILP with CPLEX')
+            print('BASEILP with CPLEX')
             prob.solve(pulp.CPLEX(msg=0))
         except:
             #print('BASEILP fallback to %s' % (solver))
             if solver == 'gurobi':
                 prob.solve(pulp.GUROBI(msg=0))
             elif solver == 'glpk':
+                print('BASEILP with GLPK')
                 prob.solve(pulp.GLPK(msg=0)) 
             else:
                 sys.exit('no solver specified')

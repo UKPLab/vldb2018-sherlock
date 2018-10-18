@@ -746,7 +746,7 @@ class SimulatedFeedback():
         return (Set(recommendations), subset_of_optimal_feedback)
 
     def __solve_joint_ilp__(self, feedback, non_feedback, summarizer, summary_length,
-                            uncertainity={}, labels={}, unique=False, excluded_solutions=[], solver='cplex'):
+                            uncertainity={}, labels={}, unique=False, excluded_solutions=[], solver='glpk'):
         """
         :param summary_length: The size of the backpack. i.e. how many words are allowed in the summary.
         :param feedback:
