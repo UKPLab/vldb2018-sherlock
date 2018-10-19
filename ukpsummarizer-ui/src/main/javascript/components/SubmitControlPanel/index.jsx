@@ -10,12 +10,13 @@ export default class SubmitControlPanel extends React.Component {
     render() {
 
         const {interactions, weights, callback} = this.props;
+        console.log(interactions, weights, callback)
         const i = [...interactions.entries()].map(([key, value]) => ({key, value})).map(e => ({
             weight: Math.log((weights[e.key] + 1) / Math.log(10)) + 1 | 1.0,
             ...e.value
         })).map(e => {
             const {value, concept, concept: k, weight} = e;
-
+            console.log(value, concept, weight)
             return <Item key={concept} value={value} concept={concept} weight={weight} callback={callback}/>;
         }).sort((a, b) => {
             return (a.key < b.key) ? -1 : (a.key === b.key) ? 0 : 1;

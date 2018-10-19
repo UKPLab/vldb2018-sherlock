@@ -55,7 +55,7 @@ import SubmitControlPanel from "../../components/SubmitControlPanel";
  * @returns {Array}
  */
 function extractConceptAnnotations(sentence) {
-    let s = sentence.untokenized_form;
+    let s = sentence.untokenized_form.toLowerCase();
     const c = sentence.untokenized_concepts;
 
     let result = [];
@@ -67,9 +67,10 @@ function extractConceptAnnotations(sentence) {
         }
         const endPosition = startPosition + concept.length;
         const anno = new Annotation(sentence.sentenceSubsetIndex, startPosition, endPosition, "concept").setConcept(sentence.concepts[i]);
-        // console.log(startPosition, endPosition, concept, s.substring(startPosition, endPosition));
+        //console.log(concept, c);
         result.push(anno);
     }
+    //console.log(result);
     return result;
 }
 

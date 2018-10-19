@@ -28,6 +28,8 @@ Prerequisites
    - libexpat - sudo apt-get install libexpat-dev
    - libparser - sudo apt-get install libxml-parser-perl
 
+6. sudo dpkg-reconfigure dash
+   - bash as the default to get the source command working
 
 Build and Run
 --------
