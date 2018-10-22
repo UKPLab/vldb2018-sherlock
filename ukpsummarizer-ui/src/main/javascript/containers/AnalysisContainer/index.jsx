@@ -469,14 +469,7 @@ class AnalysisContainer extends React.Component {
                             <Tab eventKey={1} title={<div>Summary #{latestIteration.iteration}</div>}>
                                 {confirmatory_summary_component}
                             </Tab>
-                            <Tab eventKey={2} title="" disabled>
-                            //<Tab eventKey={2} title={<div>Summary #{latestIteration.iteration}</div>} disabled>
-                                {/*<p>This is the exploratory summary. It is kind-of the opposite of the personalized*/}
-                                {/*summary.*/}
-                                {/*It mainly <strong>consists of sentences and concepts that have not yet received any*/}
-                                {/*feedback</strong>.*/}
-                                {/*The system expects to improve the actual summary most, if you give feedback here.*/}
-                                {/*Consider spending much effort here.</p>*/}
+                            <Tab eventKey={2} title={<div></div>} disabled>
                                 {exploratory_summary_component}
                             </Tab>
                             <Tab eventKey={4} title="" disabled>
@@ -502,7 +495,7 @@ class AnalysisContainer extends React.Component {
                                 <td>
                                     <p>
                                         <mark className="accept">Lorem ipsum</mark>
-                                        dolor sit amet
+                                        dolor amet
                                     </p>
                                 </td>
                                 <td>Text marked as <em>good/valuable</em> information</td>
@@ -510,7 +503,7 @@ class AnalysisContainer extends React.Component {
                             <tr>
                                 <td>
                                     <p>Lorem ipsum
-                                        <mark className="reject">dolor sit amet</mark>
+                                        <mark className="reject">dolor amet</mark>
                                     </p>
                                 </td>
                                 <td>Text marked as <em>bad/irrelevant</em> information</td>
