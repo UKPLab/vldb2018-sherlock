@@ -92,6 +92,7 @@ class Summary(object):
     def get_topic(self):
         return self.topic
 
+
 if __name__ == '__main__':
 
     def resolve_filename(filename, base="~/.ukpsummarizer"):
@@ -168,8 +169,9 @@ if __name__ == '__main__':
     sc.add_argument("--concept_type", choices=["parse", "ngrams"], default=None)
     # sc.add_argument("--weights", type=str, help='Json File which contains the weights for the sumarizer.')
 
-    summarizer_parser.add_argument("--pickleout", type=str,
-                                   help="Use to pickle summarizer (only the first instance. => early abort is a good thing)")
+    sc.add_argument("--k_size", help="Size of the sentences to be considered for density estimation", type=float, default=0.1)
+    sc.add_argument("--pickleout", type=str,
+                                   help="Use to pickle summarizer")
 
 
 
@@ -181,6 +183,7 @@ if __name__ == '__main__':
                                      type=str)
     continuation_parser.add_argument("--oracle_labels", type=str,
                                      help='Json File which contains labeled data that has been provided by a human user')
+    continuation_parser.add_argument("--k_size", help="Size of the sentences to be considered for density estimation", type=float, default=0.1)
 
     #### dataset and other data-related settings
     dc = summarizer_parser.add_argument_group("Data configuration")
@@ -207,7 +210,8 @@ if __name__ == '__main__':
                                    args.rouge,
                                    scores_dir=args.scores_dir.replace("\"",""),
                                    out=args.output_filename.replace("\"",""),
-                                   override_results_files=args.override_results)
+                                   override_results_files=args.override_results,
+                                   k=args.k_size)
 
         if args.oracle_labels is not None:
 
@@ -302,7 +306,8 @@ if __name__ == '__main__':
                                        scores_dir=args.scores_dir.replace("\"",""),
                                        out=args.output_filename.replace("\"",""),
                                        override_results_files=args.override_results,
-                                       pickle_store=pickleout)
+                                       pickle_store=pickleout,
+                                       k=args.k_size)
 
             runner.run(t,
                        size=summary_size,

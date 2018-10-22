@@ -340,6 +340,7 @@ class SentenceRanker(object):
         return input_sentences
 
     def get_top_k_sentences(self, k=None):
+        print('### Top k %f' % self.k)
         if k is None:
             k = self.k
         # Statistic purposes:

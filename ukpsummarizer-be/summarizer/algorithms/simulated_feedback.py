@@ -261,6 +261,8 @@ class SimulatedFeedback():
                     del self.summarizer.weights[concept]
         log.debug('Total concepts found: %s ' % (len(self.summarizer.weights)))
 
+        self.summarizer.all_sentences = copy.deepcopy(self.summarizer.sentences)
+        self.summarizer.all_weights = copy.deepcopy(self.summarizer.weights)
         # TODO move to other classes: ##################################################################################
 
         # TODO move to "recommender"
@@ -384,6 +386,8 @@ class SimulatedFeedback():
 
         fr = self.flight_recorder
         # solve the ilp model
+
+
         value, subset = self.summarizer.solve_ilp_problem(summary_size=int(summary_length), units="WORDS")
         summary = [self.summarizer.sentences[j].untokenized_form for j in subset]
 
@@ -646,6 +650,11 @@ class SimulatedFeedback():
         new_accepts, new_rejects, new_implicits = self.oracle.get_labels(samples)
         self.flight_recorder.record(new_accepts, new_rejects, new_implicits)
         self.recalculate_weights(self.new_oracle_type)
+
+        if self.run_config['rank_subset']:
+            log.info('## Ranking the subset')
+            self.update_sentence_ranking(new_accepts, new_rejects, new_implicits)
+
         current_summary, current_score, current_summary_sentence_ids = self.get_summary_details(iteration,
                                                                                                 self.summary_length)
         self.__add_weights_to_history__(self.new_debug_dump_target_dir, iteration)
@@ -904,7 +913,9 @@ class SimulatedFeedback():
         self.change_sentence_subset(new_accepts, new_rejects)
 
     def change_sentence_subset(self, new_accepts=[], new_rejects=[], new_implicits=[]):
+        log.info('Num of sentences %d' % len(self.summarizer.sentences))
         self.summarizer.sentences = self.sentence_ranker.get_input_sentences()
+        log.info('Num of sentences %d' % len(self.sentence_ranker.get_top_k_sentences()))
         self.summarizer.weights = self.sentence_ranker.filter_concepts_of_top_k_sentences(
             new_accepts, new_rejects, sentences=self.summarizer.sentences)
         self.summarizer.compute_word_frequency() # recomputation only necessary if unique=True

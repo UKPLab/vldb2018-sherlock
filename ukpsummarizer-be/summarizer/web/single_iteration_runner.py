@@ -137,10 +137,11 @@ class SingleTopicRunner(object):
     tlog = logging.getLogger("timings")
 
     def __init__(self, iobasedir, rouge_dir, out=None, scores_dir=None, override_results_files=False,
-                 pickle_store=None):
+                 pickle_store=None, k=0.1):
         self.iobasedir = path.normpath(path.expanduser(iobasedir))
         # resolved_rouge_dir = path.normpath(path.expanduser(rouge_dir))
         self.rouge = Rouge(rouge_dir)
+        self.k = k
         if out is None:
             self.out = None
         else:
@@ -180,7 +181,19 @@ class SingleTopicRunner(object):
 
         svm_flag = 0
         sf.oracle = HumanOracle(labeled_data)
+        if 'k_size' in labeled_data:
+            self.k = labelled_data['k_size']
+        if sf.k != self.k:
+            log.info("recording k_size in continue %f", sf.k)
+            log.info("recording sentence size in continue %d", len(sf.summarizer.sentences))
+            sf.k = self.k
+            if sf.run_config['rank_subset']:
+                sf.summarizer.sentences = sf.summarizer.all_sentences
+                sf.summarizer.weights = sf.sentence_ranker.all_concept_weights
+                sf.initialize_sentence_ranking()
 
+        log.info("recording k_size in continue %f", sf.k)
+        log.info("recording sentence size in continue %d", len(sf.summarizer.sentences))
         log.info("records before: %s", len(sf.flight_recorder.records))
 
         log.info("running iteration")
@@ -301,10 +314,9 @@ class SingleTopicRunner(object):
             for flag in ['adaptive_sampling', 'strategy']:
                 run_config[flag] = False
 
-            k = 0.1
             r = 0
             clusters = None
-
+            log.info("recording k_size in summarize %f", self.k)
             #TODO: Added summaries instead of one single summary
             sf = SimulatedFeedback(language, self.rouge, embeddings=None,  #TODO: embeddings
                                    docs=docs, models=summaries,
@@ -313,7 +325,7 @@ class SingleTopicRunner(object):
                                    ub_score=ub_scores, ub_summary=ub_summary,
                                    parser_type=parser, flightrecorder=flightrecorder,
                                    feedbackstore=feedbackstore, parse_info=parse_info,
-                                   run_config=run_config, k=k, adaptive_window_size=r, clusters=clusters)
+                                   run_config=run_config, k=self.k, adaptive_window_size=r, clusters=clusters)
 
             if sf.embeddings is None or sf.embeddings == {}:
                 embe_var = "none",

@@ -67,10 +67,10 @@ function extractConceptAnnotations(sentence) {
         }
         const endPosition = startPosition + concept.length;
         const anno = new Annotation(sentence.sentenceSubsetIndex, startPosition, endPosition, "concept").setConcept(sentence.concepts[i]);
-        //console.log(concept, c);
+        console.log(concept, c);
         result.push(anno);
     }
-    //console.log(result);
+    console.log(result);
     return result;
 }
 
@@ -469,7 +469,8 @@ class AnalysisContainer extends React.Component {
                             <Tab eventKey={1} title={<div>Summary #{latestIteration.iteration}</div>}>
                                 {confirmatory_summary_component}
                             </Tab>
-                            <Tab eventKey={2} title={<div>Summary #{latestIteration.iteration}</div>} disabled>
+                            <Tab eventKey={2} title="" disabled>
+                            //<Tab eventKey={2} title={<div>Summary #{latestIteration.iteration}</div>} disabled>
                                 {/*<p>This is the exploratory summary. It is kind-of the opposite of the personalized*/}
                                 {/*summary.*/}
                                 {/*It mainly <strong>consists of sentences and concepts that have not yet received any*/}
@@ -501,7 +502,7 @@ class AnalysisContainer extends React.Component {
                                 <td>
                                     <p>
                                         <mark className="accept">Lorem ipsum</mark>
-                                        dolor amet
+                                        dolor sit amet
                                     </p>
                                 </td>
                                 <td>Text marked as <em>good/valuable</em> information</td>
@@ -509,7 +510,7 @@ class AnalysisContainer extends React.Component {
                             <tr>
                                 <td>
                                     <p>Lorem ipsum
-                                        <mark className="reject">dolor amet</mark>
+                                        <mark className="reject">dolor sit amet</mark>
                                     </p>
                                 </td>
                                 <td>Text marked as <em>bad/irrelevant</em> information</td>
