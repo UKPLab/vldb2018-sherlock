@@ -24,6 +24,10 @@ import {
     Col,
     Button,
     ButtonGroup,
+    ButtonToolbar,
+    FormControl,
+    FormGroup,
+    ControlLabel,
     Label,
     Jumbotron,
     Panel,
@@ -80,7 +84,8 @@ function extractConceptAnnotations(sentence) {
 class AnalysisContainer extends React.Component {
     state = {
         annotations: new MultiMap(),
-        interactions: new Map()
+        interactions: new Map(),
+        k_size: 0.1
     };
 
     constructor(...args) {
@@ -101,6 +106,11 @@ class AnalysisContainer extends React.Component {
         /**  if(this.props.store.users.loaded === false && nextProps.store.users.loaded === true){
             nextProps.actions.loadSummary(nextProps.store.users.user.id, 0, nextProps.location.query.topic);
         }**/
+    }
+
+    onPickK(e) {
+        console.log('[onPickK]', this.inputEl.value)
+        this.setState({ k_size: this.inputEl.value });
     }
 
     __save_feedback__() {
@@ -524,6 +534,29 @@ class AnalysisContainer extends React.Component {
 
                     </Col>
                     <Col md={4}>
+                        <Well>
+
+                        <p>
+                                                        <ControlLabel>Approximation Size (K) </ControlLabel><span>&nbsp;&nbsp;</span>
+                                                        <FormGroup controlId="formControlsSelect">
+                                                          <FormControl
+                                                            onChange={this.onPickK.bind(this)}
+                                                            inputRef={el => this.inputEl = el}
+                                                            componentClass="select" placeholder="select">
+                                                            <option value={0.1}>10%</option>
+                                                            <option value={0.2}>20%</option>
+                                                            <option value={0.3}>30%</option>
+                                                            <option value={0.4}>40%</option>
+                                                            <option value={0.5}>50%</option>
+                                                            <option value={0.6}>60%</option>
+                                                            <option value={0.7}>70%</option>
+                                                            <option value={0.8}>80%</option>
+                                                            <option value={0.9}>90%</option>
+                                                            <option value={1}>100%</option>
+                                                          </FormControl>
+                                                        </FormGroup>
+                                                    </p>
+                        </Well>
                         <Well>
                             <p>
                                 <Button block onClick={this.__save_feedback__.bind(this)}
