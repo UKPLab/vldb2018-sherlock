@@ -7,89 +7,151 @@
  * Do not use without prior consent by the copyright holder.
  *
  **/
+import React from 'react';
+
 // mvc stuff
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as DatasetActions from '../../controllers/datasets/actions';
 import routeConfig from '../../config/routes';
-import {LinkContainer} from "react-router-bootstrap";
-
 
 // ui stuff
-import './style.less';
-import {Link} from 'react-router'
-import React from 'react';
 import {
-    Button,
     Grid,
     Row,
     Col,
+    Table,
+    Button,
+    ButtonGroup,
     Jumbotron,
-    Well,
-    Panel, Collapse
+    Breadcrumb
 } from 'react-bootstrap';
+import {LinkContainer} from "react-router-bootstrap";
+
 import FontAwesome from 'react-fontawesome';
-import HoverPanel from '../../components/HoverPanel';
 
-class HomePage extends React.Component {
 
-    state = {
-        documentsVisible: false
-    };
+class FileBrowser extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
         window.scrollTo(0, 0);
+        const {filebrowser: {path, datasets}} = this.props;
+        this.__loadDatasetPath(path);
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+
+    }
+
+    __loadDatasetPath(path = "/") {
+        this.props.actions.getDatasets(path);
     }
 
     render() {
+        console.log("Rendering FileBrowser");
+        const {filebrowser: {path, datasets}} = this.props;
 
-        return (<Grid>
-            <Row>
-                <Col xs={12}>
-                        <h1>Sherlock</h1>
-                        <p>Computer Aided Summarization to Combat Accelerated Data Exploration</p>
-                </Col>
-            </Row>
+        let rows = datasets.map(x => {
+            var identifier, type;
 
-            <Row>
-                <Col md={12}>
-                    <p className="lead">
-                    Collect a summary text for a given query by iteratively marking relavant information in the summary text for a specific query, until your desired summary is reached.
-                    </p>
-                </Col>
-            </Row>
-            <Well> 
+            if (x.type === "DIRECTORY") {
+                identifier = (<b><a onClick={this.__loadDatasetPath.bind(this, path + "/" + x.name)}>{x.name}</a></b>);
+            } else {
+                identifier = (<b>{x.name}</b>);
+            }
+
+            let taskDesc = null;
+            let narrative="";
+            let topic = null;
+            if (x.task) {
+                identifier = (<LinkContainer to={{pathname: routeConfig.assignment, query: {topic: path + "/" + x.name}}}>
+                    <Button ><FontAwesome name="play"/>{x.name}</Button>
+                </LinkContainer>);
+
+                taskDesc = x.task.title;
+                narrative=x.task.narrative;
+            }
+
+            return (<tr key={x.name}>
+                    <td>{identifier}{topic}</td>
+                    <td>{x.numberOfDocuments}</td>
+                    <td>{taskDesc}</td>
+                    <td>{narrative}</td>
+                    {/*<td>{x.numberOfDocuments}</td>*/}
+                    {/*<td>{x.numberOfModels}</td>*/}
+                </tr>
+            )
+        });
+
+
+        let datasetTable = (<Table striped bordered hover>
+            <thead>
+            <tr>
+                <th>Dataset</th>
+                <th>Number of documents</th>
+                <th>Task description</th>
+                <th>Narrative</th>
+                {/*<th>Number of documents</th>*/}
+                {/*<th>Number of models</th>*/}
+            </tr>
+            </thead>
+            <tbody>
+            {rows}
+            </tbody>
+        </Table>);
+
+        const breadcrumbInstance = (<Breadcrumb>
+            <Breadcrumb.Item onClick={this.__loadDatasetPath.bind(this, "/")}>
+                Home
+            </Breadcrumb.Item>
+            {path.split("/")
+                .filter(s => "" !== s)
+                .map((v, i, a) => {
+                    const pathVar = a.slice(0, i + 1).join("/");
+                    return (<Breadcrumb.Item key={pathVar} onClick={this.__loadDatasetPath.bind(this, pathVar)}>
+                        {v}
+                    </Breadcrumb.Item>);
+                })}
+        </Breadcrumb>);
+
+        return (
+            <Grid>
                 <Row>
-                    <Col md={12}>
-                        <b> Example Topic: </b> Art and music in public schools 
+                    <Col xs={12}>
+                            <h2> Welcome </h2>
+                            <p> This is a demo of the Interactive Summarization of Large Text Collections presented at VLDB 2018</p> <br/>
+                            <p> Browse the document collections</p>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={12}>
-                    <b> Query: </b> Describe the state of teaching art and music in public schools around the world. Indicate problems, progress and failures.
+                    <Col xs={12}>
+                        {/*breadcrumbInstance*/}
+                        {datasetTable}
+                        <Button><FontAwesome name="magic"/> Add a new dataset</Button>
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={12}>
-                    <b> Summary: </b> China, Cuba and the United States are countries trying to improve music and arts education in the public schools.
-                             Despite disagreement as to the importance of this instruction to other aspects of the students' development, its value in its own right is accepted.
-                             It is also generally agreed that much demands to be done.
-                             In China music and drama weekends supplement the school curriculum, special schools train rural schoolteachers in music and the arts and schools are being equipped with necessary facilities for music and arts instruction.
-                             In Cuba music education is emphasized but the instruments are old and in need of repair.
-                             In the United States there is widespread recognition of damage done by 20-30 years of elimination or reduction of music and arts classes due to budget cuts or increased emphasis on core subjects to satisfy testing requirements.
-                             Various approaches are being tried as remedies.
-                             U.S. Secretary of Education Riley has said, "...most American children are infrequently or never given serious instruction or performance opportunities in music, the arts or theater. That's wrong".
-                             Across the country efforts to compensate for cutbacks include: raising private funds; arranging assistance to the public schools from cultural, educational and non-profit organizations; development of digital techniques for music  and the arts; offering free after-school and summer programs; introducing low-cost equipment; blending the arts and music into core subjects; and including music and arts as college admission requirements.
-                    </Col>
-                </Row> 
-            </Well>
-            <Row>
-                <Col sm={12} xs={12}>
-                        <Link to={routeConfig.assignments}>
-                            <Button bsStyle='primary'> Continue </Button>
-                        </Link>
-                </Col>
+                <br/><br/><br/><br/>
+                <p>
+                This demo is supported by the DFG research training group <a href='https://www.aiphes.tu-darmstadt.de/de/aiphes/'> AIPHES (Adaptive Information Preparation from Heterogeneous Sources)</a>, <a href="https://www.informatik.tu-darmstadt.de/ukp/ukp_home/">UKP Lab, Technische Universität Darmstadt </a>
+                and <a href='http://binnig.name/'> Data Management Lab, Technische Universität Darmstadt</a>.
+                </p>
+                <p>
+                For questions, please contact <a href='https://www.informatik.tu-darmstadt.de/ukp/ukp_home/staff_ukp/detailseite_mitarbeiter_1_41216.en.jsp'>Avinesh PVS</a>
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+                </p>
 
-            </Row>
-        </Grid>);
+                </Row>
+
+            </Grid>
+        );
     }
 }
 
@@ -98,7 +160,12 @@ class HomePage extends React.Component {
  * of the container component.
  * @param state {State} - the current application state
  */
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+    const {datasets: {filebrowser}} = state;
+    return {
+        filebrowser
+    };
+};
 
 /**
  * Maps action dispatchers to properties of the container
@@ -106,6 +173,16 @@ const mapStateToProps = (state) => ({});
  *
  * @param dispatch {Dispatch} - the stores dispatch function.
  */
-const mapDispatchToProps = (dispatch) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(Object.assign({}, DatasetActions), dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FileBrowser);
+
+
+/** WEBPACK FOOTER **
+ ** ./src/main/javascript/containers/FileBrowser/index.jsx
+ **/

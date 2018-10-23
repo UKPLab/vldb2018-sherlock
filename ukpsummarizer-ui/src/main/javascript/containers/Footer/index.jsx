@@ -36,21 +36,24 @@ const Footer = (props) => {
     let username = store.users.user.id;
     return (
         <Navbar componentClass="footer" className="footer">
-            <Navbar.Text>
-                &copy; 2018 UKP Lab
+             <Navbar.Text>
+                   &copy; 2018 UKP Lab, Technische Universität Darmstadt
+             </Navbar.Text>
 
-            </Navbar.Text>
+
+
             <Nav className="center">
                 <IndexLinkContainer to={routeConfig.profile} disabled>
-                    <NavItem eventKey={5}><FontAwesome name="user" fixedWidth/>&nbsp;{username}</NavItem>
+                    <NavItem eventKey={5}><FontAwesome name="user" fixedWidth/>&nbsp; User ID: &nbsp;{username}</NavItem>
                 </IndexLinkContainer>
             </Nav>
 
             <Nav pullRight>
-                <LinkContainer to={routeConfig.about}>
-                    <NavItem eventKey={1}>About</NavItem>
+                <LinkContainer to={routeConfig.root}>
+                      <NavItem eventKey={1}>Home</NavItem>
                 </LinkContainer>
             </Nav>
+
         </Navbar>);
 };
 

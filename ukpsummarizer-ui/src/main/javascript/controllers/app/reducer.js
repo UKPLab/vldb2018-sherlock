@@ -2,7 +2,7 @@ import * as Actions from "./constants";
 import * as Assignments from "../user/constants"
 
 const INITIAL_STATE = {
-    title: "Sherlock"
+    title: "Sherlock: Interactive Summarization of Large Text Collections"
 };
 
 /**

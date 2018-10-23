@@ -537,25 +537,25 @@ class AnalysisContainer extends React.Component {
                         <Well>
 
                         <p>
-                                                        <ControlLabel>Approximation Size (K) </ControlLabel><span>&nbsp;&nbsp;</span>
-                                                        <FormGroup controlId="formControlsSelect">
-                                                          <FormControl
-                                                            onChange={this.onPickK.bind(this)}
-                                                            inputRef={el => this.inputEl = el}
-                                                            componentClass="select" placeholder="select">
-                                                            <option value={0.1}>10%</option>
-                                                            <option value={0.2}>20%</option>
-                                                            <option value={0.3}>30%</option>
-                                                            <option value={0.4}>40%</option>
-                                                            <option value={0.5}>50%</option>
-                                                            <option value={0.6}>60%</option>
-                                                            <option value={0.7}>70%</option>
-                                                            <option value={0.8}>80%</option>
-                                                            <option value={0.9}>90%</option>
-                                                            <option value={1}>100%</option>
-                                                          </FormControl>
-                                                        </FormGroup>
-                                                    </p>
+                            <ControlLabel>Approximation Size (K) </ControlLabel><span>&nbsp;&nbsp;</span>
+                            <FormGroup controlId="formControlsSelect">
+                              <FormControl
+                                onChange={this.onPickK.bind(this)}
+                                inputRef={el => this.inputEl = el}
+                                componentClass="select" placeholder="select">
+                                <option value={0.1}>10%</option>
+                                <option value={0.2}>20%</option>
+                                <option value={0.3}>30%</option>
+                                <option value={0.4}>40%</option>
+                                <option value={0.5}>50%</option>
+                                <option value={0.6}>60%</option>
+                                <option value={0.7}>70%</option>
+                                <option value={0.8}>80%</option>
+                                <option value={0.9}>90%</option>
+                                <option value={1.0}>100%</option>
+                              </FormControl>
+                            </FormGroup>
+                        </p>
                         </Well>
                         <Well>
                             <p>

@@ -2,7 +2,7 @@ import * as Actions from "./constants";
 
 const INITIAL_STATE = {
     filebrowser: {
-        path: "datasets/processed/DUC2004TEST",
+        path: "datasets/processed/DEMO",
         datasets: [],
         loaded: false
     },

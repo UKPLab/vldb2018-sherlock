@@ -28,7 +28,7 @@ import {bindActionCreators} from 'redux';
 
 import routeConfig from '../../config/routes';
 import * as UserActions from '../../controllers/user/actions';
-
+import './header.less';
 /**
  *
  * @param props
@@ -40,8 +40,7 @@ const Header = (props) => {
     let username = store.users.user.id;
 
     return (
-        <nav className="header">
-            <Navbar fixedTop>
+            <Navbar componentClass="header" className="header" fixedTop>
                 <Navbar.Header>
                     <Navbar.Brand>
 						{store.app.title}
@@ -49,9 +48,9 @@ const Header = (props) => {
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>
-
+                {/*
                 <Navbar.Collapse>
-                    {/*<Nav>
+                    {<Nav>
                         <IndexLinkContainer to={routeConfig.data}>
                             <NavItem eventKey={2}><FontAwesome name="folder" fixedWidth/>&nbsp;Files</NavItem>
                         </IndexLinkContainer>
@@ -61,15 +60,15 @@ const Header = (props) => {
                             <NavItem eventKey={2}><FontAwesome name="shopping-basket" fixedWidth/>&nbsp;
                                 Assignments</NavItem>
                         </IndexLinkContainer>
-                    </Nav>*/}
+                    </Nav>}
                     <Nav pullRight>
                         <IndexLinkContainer to={routeConfig.help}>
                             <NavItem eventKey={3}><FontAwesome name="question-circle-o" fixedWidth/>&nbsp;Help</NavItem>
                         </IndexLinkContainer>
                     </Nav>
                 </Navbar.Collapse>
-            </Navbar>
-        </nav>);
+                */}
+            </Navbar>);
 };
 
 
