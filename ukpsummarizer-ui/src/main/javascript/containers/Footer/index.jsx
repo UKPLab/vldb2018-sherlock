@@ -50,8 +50,8 @@ const Footer = (props) => {
 
             <Nav pullRight>
                 <LinkContainer to={routeConfig.root}>
-                      <NavItem eventKey={1}>Home</NavItem>
-                </LinkContainer>
+                                 <NavItem eventKey={1}>Home</NavItem>
+                             </LinkContainer>
             </Nav>
 
         </Navbar>);

@@ -63,9 +63,7 @@ class FileBrowser extends React.Component {
 
             if (x.type === "DIRECTORY") {
                 identifier = (<b><a onClick={this.__loadDatasetPath.bind(this, path + "/" + x.name)}>{x.name}</a></b>);
-            } else {
-                identifier = (<b>{x.name}</b>);
-            }
+
 
             let taskDesc = null;
             let narrative="";
@@ -88,6 +86,7 @@ class FileBrowser extends React.Component {
                     {/*<td>{x.numberOfModels}</td>*/}
                 </tr>
             )
+        }
         });
 
 
@@ -95,8 +94,8 @@ class FileBrowser extends React.Component {
             <thead>
             <tr>
                 <th>Dataset</th>
-                <th>Number of documents</th>
-                <th>Task description</th>
+                <th>Documents</th>
+                <th>Task Description</th>
                 <th>Narrative</th>
                 {/*<th>Number of documents</th>*/}
                 {/*<th>Number of models</th>*/}
