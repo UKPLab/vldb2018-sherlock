@@ -331,8 +331,8 @@ class AnalysisContainer extends React.Component {
                 let narrative = assignment.data.narrative;
                 let title = assignment.data.title;
 
-                confirmatory_summary_component = <Spinner text="Loading summary. Please be patient, this might take a while (up to a minute). DO NOT press F5 to refresh the page."/>;
-                exploratory_summary_component = <Spinner text="Loading summary. Please be patient, this might take a while (up to a minute). DO NOT press F5 to refresh the page."/>;
+                confirmatory_summary_component = <Spinner text="Please wait... loading summary"/>;
+                exploratory_summary_component = <Spinner text="Please waiti... loading summary"/>;
                 break;
             case "LOADED":
                 let confirmatory_sentences = [];

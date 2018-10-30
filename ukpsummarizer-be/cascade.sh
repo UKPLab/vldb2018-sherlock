@@ -1,4 +1,4 @@
 #!/bin/bash
-export PATH="/home/local/UKP/avinesh/anaconda/bin:$PATH"
+export PATH="/home/avinesh/anaconda2/bin:$PATH"
 which python
 python summarizer/cascade.py "$@"

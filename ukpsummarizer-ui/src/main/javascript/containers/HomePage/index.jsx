@@ -144,7 +144,7 @@ class FileBrowser extends React.Component {
                 </p>
                 <p>
                 For questions, please contact <a href='https://www.informatik.tu-darmstadt.de/ukp/ukp_home/staff_ukp/detailseite_mitarbeiter_1_41216.en.jsp'>Avinesh PVS</a>
-                <br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 </p>
 
                 </Row>

@@ -26,21 +26,19 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import FontAwesome from 'react-fontawesome';
 
+import './footer.less';
 import routeConfig from '../../config/routes';
 import * as UserActions from '../../controllers/user/actions';
-import './footer.less';
 
 const Footer = (props) => {
     const {store, actions} = props;
 
     let username = store.users.user.id;
     return (
-        <Navbar componentClass="footer" className="footer">
+        <Navbar fixedBottom>
              <Navbar.Text>
                    &copy; 2018 UKP Lab, Technische Universität Darmstadt
              </Navbar.Text>
-
-
 
             <Nav className="center">
                 <IndexLinkContainer to={routeConfig.profile} disabled>

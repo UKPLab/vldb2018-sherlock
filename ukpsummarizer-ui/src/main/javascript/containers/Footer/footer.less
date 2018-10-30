@@ -1,6 +1,19 @@
 @import '../../styles/global.less';
 
-footer.footer {
-  &:extend(.navbar);
-  margin-bottom: 0;
+.navbar.navbar-default {
+    margin-bottom: 0;
+}
+
+.navbar.navbar-default .navbar-nav > .active > a {
+    color: white;
+    background-color: #A10516;
+}
+
+.navbar.navbar-default .navbar-nav > .active > a:hover {
+    color: #555;
+    background-color: #A10516;
+}
+
+.navbar.navbar-default .navbar-text {
+    color: white;
 }

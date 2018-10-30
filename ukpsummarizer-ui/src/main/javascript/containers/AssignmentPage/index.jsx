@@ -129,6 +129,7 @@ class AssignmentPage extends React.Component {
                     <div>
                         {buttonArea}
                     </div>
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 </Col>
                 {/*<Col md={3}>
                     <Panel header={<FontAwesome name="info-circle" />}>

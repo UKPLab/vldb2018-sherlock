@@ -26,9 +26,10 @@ import FontAwesome from 'react-fontawesome';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+import './header.less';
 import routeConfig from '../../config/routes';
 import * as UserActions from '../../controllers/user/actions';
-import './header.less';
+
 /**
  *
  * @param props
@@ -40,14 +41,12 @@ const Header = (props) => {
     let username = store.users.user.id;
 
     return (
-            <Navbar componentClass="header" className="header" fixedTop>
-                <Navbar.Header>
-                    <Navbar.Brand>
-						{store.app.title}
-                        {/*<Link to={routeConfig.root}> </Link>*/}
-                    </Navbar.Brand>
+            <Navbar fixedTop>
+                        <Navbar.Brand>
+                            {store.app.title}
+                            {/*<Link to={routeConfig.root}> </Link>*/}
+                        </Navbar.Brand>
                     <Navbar.Toggle/>
-                </Navbar.Header>
                 {/*
                 <Navbar.Collapse>
                     {<Nav>
