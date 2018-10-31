@@ -65,7 +65,6 @@ public class AssignmentTemplate {
 
     @JsonView(Views.Minimal.class)
     @Column
-    //public String topic = "datasets/processed/DUC2004TEST/1doc1sum";
     public String topic = "datasets/processed/DUC2006TEST/D0601A";
 
     @JsonView(Views.Public.class)

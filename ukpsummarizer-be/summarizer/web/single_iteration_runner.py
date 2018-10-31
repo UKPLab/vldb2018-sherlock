@@ -203,6 +203,7 @@ class SingleTopicRunner(object):
                                                                                                        samples,
                                                                                                        svm_flag)
 
+
         sf.__print_iteration_info__(summary_sentences, iteration, summary, score,
                                     unlabeled_data, exploratory_sentences)
         log.info("records after run: %s", len(sf.flight_recorder.records))
@@ -243,6 +244,8 @@ class SingleTopicRunner(object):
             topic = Topic(path.join(self.iobasedir, path.normpath(relative_path)))
         language = topic.get_language()
         docs = topic.get_docs()
+        for doc in docs:
+            print('#####', doc[0], len(doc[1]))
         summaries = topic.get_models()
 
         flightrecorder = get_flightrecorder_from_file(feedback_log)
@@ -534,7 +537,6 @@ class SingleTopicRunner(object):
     def write_summarize_output_json(self, sf, confirmatory_summary, derived_records, log, recom_sentences,
                                     result, run_id, summarizer, summary, pickle_store=None):
         # convert the sentences into a jsonizable structure:
-        sents = convert_to_json(sf.summarizer.sentences)
         outputfilecontents = {
             "picklein": None,
             "pickleout": pickle_store,
@@ -546,7 +548,7 @@ class SingleTopicRunner(object):
             "weights": sf.summarizer.weights,
             "fbs_weights": dict(sf.feedbackstore.get_weights()),
             "details": derived_records,
-            "sentences": list(sents),
+            "sentences": list(convert_to_json(sf.summarizer.all_sentences)),
             "full": result,
             "score": sf.log_sir_info_data
         }
