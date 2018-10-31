@@ -462,11 +462,10 @@ class AnalysisContainer extends React.Component {
         return (<Grid>
                 <Row>
                     <Col xs={12}>
+
                         <p className="lead">
-                        <small><b>Topic: </b><em>{title}</em></small><br/>
-                        <Well>
-                                <b>Query: </b>{narrative}
-                        </Well>
+                        <PageHeader> <b>Topic: </b><em>{title}</em> </PageHeader>
+                        <Well><b>Query: </b>{narrative}</Well>
                         </p>
                     </Col>
                 </Row>

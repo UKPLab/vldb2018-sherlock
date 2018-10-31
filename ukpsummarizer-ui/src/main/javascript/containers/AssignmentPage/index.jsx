@@ -65,6 +65,7 @@ class AssignmentPage extends React.Component {
 
         let buttonArea = (<code>Refresh the page</code>);
         switch (assignments.state) {
+            case "NEW":
             case "LOADED":
                 const idx = assignments.data.findIndex(e => e.topic === topic.path);
                 if (idx >= 0) {
@@ -88,7 +89,6 @@ class AssignmentPage extends React.Component {
                         ... we summarize the text for the first time...
                     </Button>);
                 break;
-            case "NEW":
             case "FAILED":
         }
 
