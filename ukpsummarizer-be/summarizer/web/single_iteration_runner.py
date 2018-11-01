@@ -547,6 +547,7 @@ class SingleTopicRunner(object):
             "fbs_weights": dict(sf.feedbackstore.get_weights()),
             "details": derived_records,
             "sentences": list(sents),
+            "all_sentences": list(convert_to_json(sf.summarizer.all_sentences)),
             "full": result,
             "score": sf.log_sir_info_data
         }

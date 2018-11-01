@@ -307,7 +307,6 @@ class AnalysisContainer extends React.Component {
             });
         });
 
-
         this.setState({
             annotations: newAnnos,
             interactions: newInteractionsMap
@@ -478,15 +477,16 @@ class AnalysisContainer extends React.Component {
                             <Tab eventKey={1} title={<div>Summary #{latestIteration.iteration}</div>}>
                                 {confirmatory_summary_component}
                             </Tab>
+                            <Tab eventKey={3} title="Documents" disabled>
+                                <TopicCollectionComponent content={fullText}/>
+                            </Tab>
                             <Tab eventKey={2} title={<div></div>} disabled>
                                 {exploratory_summary_component}
                             </Tab>
                             <Tab eventKey={4} title="" disabled>
                                 {feedback_component}
                             </Tab>
-                            <Tab eventKey={3} title="">
-                                <TopicCollectionComponent content={fullText}/>
-                            </Tab>
+
                             <Tab eventKey={5} title="" disabled>
                                 <Json json={latestIteration.weights}/>
                             </Tab>

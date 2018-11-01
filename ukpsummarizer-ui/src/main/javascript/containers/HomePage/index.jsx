@@ -125,7 +125,7 @@ class FileBrowser extends React.Component {
                 <Row>
                     <Col xs={12}>
                             <h2> Welcome </h2>
-                            <p> This is a demo of the Interactive Summarization of Large Text Collections presented at VLDB 2018</p> <br/>
+                            <p> This is a demo of <a href='https://www.vldb.org/pvldb/vol11/p1902-p.v.s..pdf'>Sherlock: A System for Interactive Summarization of Large Text Collections</a> presented at VLDB 2018</p> <br/>
                             <p> Browse the document collections</p>
                     </Col>
                 </Row>
@@ -133,7 +133,9 @@ class FileBrowser extends React.Component {
                     <Col xs={12}>
                         {/*breadcrumbInstance*/}
                         {datasetTable}
+                        {/*
                         <Button><FontAwesome name="magic"/> Add a new dataset</Button>
+                        */}
                     </Col>
                 </Row>
                 <Row>

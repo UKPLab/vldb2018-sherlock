@@ -24,7 +24,7 @@ export default class TopicCollectionComponent extends React.Component {
         }
 
         return (<div>
-            <h1>{mm.size()} documents</h1>
+            <h4>Total Documents: {mm.size()}</h4>
             {docs}
         </div>)
     }
