@@ -103,7 +103,7 @@ class AssignmentPage extends React.Component {
             <Row>
                 <Col>
                     <p className="lead">
-                    <PageHeader><b>Topic:</b>{item.task.title}</PageHeader>
+                    <PageHeader><b>Check Topic:</b>{item.task.title}</PageHeader>
                     <Well><b>Query:</b> {item.task.narrative}</Well>
                     </p>
                 </Col>

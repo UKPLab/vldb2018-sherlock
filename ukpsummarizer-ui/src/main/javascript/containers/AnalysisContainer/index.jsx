@@ -464,7 +464,7 @@ class AnalysisContainer extends React.Component {
                     <Col xs={12}>
 
                         <p className="lead">
-                        <PageHeader> <b>Topic: </b>{title}</PageHeader>
+                        <PageHeader> <b>Check Topic: </b>{title}</PageHeader>
                         <Well><b>Query: </b>{narrative}</Well>
                         </p>
                     </Col>
