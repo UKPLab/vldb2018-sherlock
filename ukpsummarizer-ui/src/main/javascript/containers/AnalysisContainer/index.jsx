@@ -464,7 +464,7 @@ class AnalysisContainer extends React.Component {
                     <Col xs={12}>
 
                         <p className="lead">
-                        <PageHeader> <b>Check Topic: </b>{title}</PageHeader>
+                        <PageHeader><small><b> Topic: </b>{title}</small></PageHeader>
                         <Well><b>Query: </b>{narrative}</Well>
                         </p>
                     </Col>
@@ -484,7 +484,7 @@ class AnalysisContainer extends React.Component {
                             <Tab eventKey={4} title="" disabled>
                                 {feedback_component}
                             </Tab>
-                            <Tab eventKey={3} title="" disabled>
+                            <Tab eventKey={3} title="">
                                 <TopicCollectionComponent content={fullText}/>
                             </Tab>
                             <Tab eventKey={5} title="" disabled>
