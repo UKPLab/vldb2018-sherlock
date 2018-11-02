@@ -37,11 +37,8 @@ Prerequisites
 -------------
 
 * python >= 2.7 (tested with 2.7.6)
-* on windows: http://aka.ms/vcpython27
 * jdk 8
 * JAVA_HOME env variable has to be set
-* glpk has to be installed and in the path
-* python in path
 
 ## Setting up the Sherlock UI 
 
