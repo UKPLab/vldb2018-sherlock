@@ -46,11 +46,22 @@ Prerequisites
 ## Setting up the Sherlock UI 
 
 1. Install Anaconda
-2. Install virtual environment conda create -n .venv python=2.7
-3. Install GLPK and CPLEX for pulp
+
+2. Install the requirements
     ```
-    sudo apt-get install libglpk-dev
+    pip install -r requirements.txt
     ```
+    
+3. Install GLPK and CPLEX for PULP (Python Integer Linear Programming Package)
+    - Install GLPK
+        ```
+        sudo apt-get install libglpk-dev
+        ```
+    - Install CPLEX for Pulp
+        ```
+        cd ukpsummarizer-be/cplex/cplex/python/2.7/x86-64_linux/
+        python setup.py install 
+        ```
 4. Perl dependencies for ROUGE:
     - LOCAL::LIB 
         ```
@@ -73,6 +84,22 @@ Prerequisites
     ```
     sudo dpkg-reconfigure dash
     ```
+    
+
+Build and Run
+-------------
+
+The result of the build produces `dist/ukpsummarizer-dist-bin.tar` file which should be a standalone bundle.
+```
+./mvnw clean install
+./mvnw -pl ukpsummarizer-server spring-boot:run
+```
+Alternatively:
+```
+tar -xvf dist/ukpsummarizer-dist-bin.tar
+java -jar ukpsummarizer-server.jar
+```  
+
 
 
 Preparing Data Directory:
@@ -155,23 +182,7 @@ Preparing Data Directory:
         |     |  +--+...
         |     +--+ ...
         +--+embeddings/
-
-
-
-Build and Run
--------------
-
-The result of the build produces `dist/ukpsummarizer-dist-bin.tar` file which should be a standalone bundle.
-```
-./mvnw clean install
-./mvnw -pl ukpsummarizer-server spring-boot:run
-```
-Alternatively:
-```
-tar -xvf dist/ukpsummarizer-dist-bin.tar
-java -jar ukpsummarizer-server.jar
-```   
-
+ 
 Windows setup
 =============
 
