@@ -1,8 +1,37 @@
-# Sherlock
+# Sherlock: An Interactive Summarization of Large Text Collections.
 
-What is Sherlock?
-------------
-Sherlock is a 
+In this demo paper, we present a new system for interactive text summarization called Sherlock. The task of automatically producing textual summaries is an important step to understand a collection of multiple topic-related documents. It has many real-world applications in journalism, medicine, and many more. However, none of the existing summarization systems allow users to provide feedback at interactive speed. We therefore integrate a new approximate summarization model into Sherlock that can guarantee interactive speeds even for large text collections to keep the user engaged in the process.
+
+If you reuse this software, please use the following citation:
+
+```
+@INPROCEEDINGS{PVS:2018a, 
+  author = {P.V.S., Avinesh and Hättasch, Benjamin and Özyurt, Orkan and Binnig, Carsten and Meyer, Christian M.}, 
+  title = {{Sherlock: A System for Interactive Summarization of Large Text Collections}}, 
+  booktitle = {Proceedings of the VLDB Endowment}, 
+  pages = {1902--1905}, 
+  volume = {11}, 
+  number = {12}, 
+  month = {August}, 
+  year = {2018}, 
+  location = {Rio de Janeiro, Brazil}, 
+  language = {English}, 
+  doi = {10.14778/3229863.3236220}, 
+  pdf = {http://www.christian-meyer.org/research/publications/vldb2018/pdf/}, 
+  url = {http://www.christian-meyer.org/research/publications/vldb2018/} 
+} 
+```
+
+**Contact person:**
+* Avinesh P.V.S., first_name AT aiphes.tu-darmstadt.de
+* Benajamin Haettasch, last_name AT aiphes.tu-darmstadt.de
+* http://www.ukp.tu-darmstadt.de/
+* http://www.tu-darmstadt.de/
+
+Don't hesitate to send us an e-mail or report an issue, if something is broken (and it shouldn't be) or if you have further questions.
+
+> This repository contains experimental software and is published for the sole purpose of giving additional background details on the respective publication.
+
 
 Prerequisites
 -------------
@@ -19,27 +48,36 @@ Prerequisites
 1. Install Anaconda
 2. Install virtual environment conda create -n .venv python=2.7
 3. Install GLPK and CPLEX for pulp
-    -  sudo apt-get install libglpk-dev
-    
-4. Perl dependencies:
-    - 'LOCAL::LIB' Perl: sudo apt-get install liblocal-lib-perl
-    - XML DOM
-5. - XML::DOM - sudo apt-get install libxml-dom-perl
-   - libexpat - sudo apt-get install libexpat-dev
-   - libparser - sudo apt-get install libxml-parser-perl
+    ```
+    sudo apt-get install libglpk-dev
+    ```
+4. Perl dependencies for ROUGE:
+    - LOCAL::LIB 
+        ```
+        sudo apt-get install liblocal-lib-perl
+        ``` 
+    - XML::DOM 
+        ``` 
+        sudo apt-get install libxml-dom-perl
+        ```
+    - libexpat :
+        ``` 
+        sudo apt-get install libexpat-dev
+        ```
+    - libparser
+        ``` 
+        sudo apt-get install libxml-parser-perl
+        ```
 
-6. sudo dpkg-reconfigure dash
-   - bash as the default to get the source command working
+5. Bash as the default (source to work):
+    ```
+    sudo dpkg-reconfigure dash
+    ```
 
-Build and Run
---------
 
-1. Build the whole project. As a result, there is a `dist/ukpsummarizer-dist-bin.tar.bz2` file which should be a 
-standalone bundle.
-
-       ./mvnw clean install
-       
-2. Create a io directory, perefably in `~/.ukpsummarizer`, which has the following layout:
+Preparing Data Directory:
+------------------------
+1. Create a io directory, perefably in `~/.ukpsummarizer`, which has the following layout:
 
         +--+cache/
         +--+datasets/
@@ -63,7 +101,7 @@ standalone bundle.
         |     +2014_tudarmstadt_german_50mincount.vec
         ...
 
-3. Download and add the word embeddings into the `~/.ukpsummarizer/embeddings` directory
+2. Download and add the word embeddings into the `~/.ukpsummarizer/embeddings` directory
 
    Download the Google embeddings (English) from [here](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/)
 
@@ -80,11 +118,8 @@ standalone bundle.
 		 >> mkdir -p summarizer/data/embeddings/english/glove
 		 >> mv *.txt.w2v ~/.ukpsummarizer/embeddings/english/glove
  
-		 
-Preprocessing
--------
 
-1. Make sure that you have the raw datasets available. Each **raw** dataset needs to be extracted and follow the following directory structure:       
+3. Make sure that you have the raw datasets available. Each **raw** dataset needs to be extracted and follow the following directory structure:       
 
         +--+DUC2006
            +--+docs
@@ -96,7 +131,7 @@ Preprocessing
            +--+topics.xml
 
 
-2. Before running the pipeline, you have to preprocess the raw datasets using the `make_data.py` script. 
+4. Before running the pipeline, you have to preprocess the raw datasets using the `make_data.py` script. 
     
        python ukpsummarizer-be/data_processer/make_data.py -d DUC2006  -p ~/.ukpsummarizer/datasets/raw  -a parse -l english
        python ukpsummarizer-be/data_processer/make_data.py -d DUC2004  -p ~/.ukpsummarizer/datasets/raw  -a parse -l english
@@ -121,64 +156,40 @@ Preprocessing
         |     +--+ ...
         +--+embeddings/
 
-3. Pre-Compute all Extractive Upper Bound summaries (or copy them from somewhere)
-
-This step is not mandatory, as the UB will be calculated if the relevant file is not found, but will save quite some time if it has been done beforehand, though.
-
-        python summarizer/multi_iteration_runner.py -s 100 -data DUC2004 --oracle accept_reject --summarizer_type UPPER_BOUND -p parse -l english -r rouge/RELEASE-1.5.5/ -io ~/.ukpsummarizer -out sume.json
-        python summarizer/multi_iteration_runner.py -s 250 -data DUC2006 --oracle accept_reject --summarizer_type UPPER_BOUND -p parse -l english -r rouge/RELEASE-1.5.5/ -io ~/.ukpsummarizer -out sume.json
-        
-4. python pipeline.py --help for more details
-    
-        python pipeline.py --summary_size=100 --oracle_type=accept_reject --data_set=TEST --summarizer_type=feedback
-        python pipeline.py --summary_size=100 --oracle_type=accept_reject --data_set=TEST --summarizer_type=baselines --language=english --rouge=rouge/RELEASE-1.5.5/ --iobasedir=~/.ukpsummarizer
 
 
-Dataset notes
-=============
+Build and Run
+-------------
 
-* In DUC2004, assignment 5, topic d151h, document `APW20000104.0268` produces and
-     
-      xml.etree.ElementTree.ParseError: mismatched tag: line 78, column 2
-
-    The reason is a missing opening tag `<P>` in row 72.
-
-* In DUC2006, topic D0614E, Model Summary B `D0614.M.250.E.B`. To fix it, `Chrétien` had to be replaced by `Chretien`. (Two times)
-* In DUC2007, topic D0713C, Model Summary D `D0713.M.250.C.D`. To fix it, `communiqué` had been replaced by `communique`. 
-* In DUC2007, topic D0713C, Model Summary H `D0740.M.250.I.H`. To fix it, `9.27° west longitude` had been replaced by `9.27 west longitude`. 
+The result of the build produces `dist/ukpsummarizer-dist-bin.tar` file which should be a standalone bundle.
+```
+./mvnw clean install
+./mvnw -pl ukpsummarizer-server spring-boot:run
+```
+Alternatively:
+```
+tar -xvf dist/ukpsummarizer-dist-bin.tar
+java -jar ukpsummarizer-server.jar
+```   
 
 Windows setup
 =============
 
 Verified by one (1) user.
 
-1. download + install anaconda2 python 2.7.12 64bit from https://www.continuum.io/downloads#windows , e.g. https://repo.continuum.io/archive/Anaconda2-4.2.0-Windows-x86_64.exe
+1. Download and install anaconda2 python 2.7.12 64bit from https://www.continuum.io/downloads#windows , e.g. https://repo.continuum.io/archive/Anaconda2-4.2.0-Windows-x86_64.exe
    * take care that it is NOT python 2.7.13, as that version contains a regression bug which breaks pulp
     
     ``TypeError: LoadLibrary() argument 1 must be string, not unicode``
     
     see http://bugs.python.org/issue29294
     
-1. download + install strawberry perl 64bit. In my case, Strawberry Perl (5.24.0.1-64bit).
-1. download + install eclipse neon.2
-1. download + instlal eclipse pydev
-1. install perl module `XML::DOM`
-1. install python modules
-
-	pip install -r requirements.txt
-  
-1. configure eclipse pydev run configuration as set up here: 
-      
-      --summary_size=100 --oracle_type=accept_reject --data_set=TEST --summarizer_type=feedback --language=english
- 
-1. Create a directory "tmp" on your root, e.g. "C:\tmp"!
-
-
-![altText][pydev-windows]
-
-
-
-
-[pydev-windows]: docs/windows-eclipse-pydev-run-config.png "Run configuration for windows"
-  
+2. Download + install strawberry perl 64bit. In my case, Strawberry Perl (5.24.0.1-64bit).
+3. download + install eclipse neon.2
+4. download + instlal eclipse pydev
+5. install perl module `XML::DOM`
+6. install python modules
+    ```
+	    pip install -r requirements.txt
+    ```
 
