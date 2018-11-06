@@ -86,6 +86,11 @@ Prerequisites
 Build and Run
 -------------
 
+Setup the sample data on your system.
+```
+cp -r data ~/.ukpsummarizer/datasets
+```
+
 The result of the build produces `dist/ukpsummarizer-dist-bin.tar` file which should be a standalone bundle.
 ```
 ./mvnw clean install
@@ -96,7 +101,6 @@ Alternatively:
 tar -xvf dist/ukpsummarizer-dist-bin.tar
 java -jar ukpsummarizer-server.jar
 ```  
-
 
 
 Preparing Data Directory:
