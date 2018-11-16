@@ -2,6 +2,9 @@
 
 In this demo paper, we present a new system for interactive text summarization called Sherlock. The task of automatically producing textual summaries is an important step to understand a collection of multiple topic-related documents. It has many real-world applications in journalism, medicine, and many more. However, none of the existing summarization systems allow users to provide feedback at interactive speed. We therefore integrate a new approximate summarization model into Sherlock that can guarantee interactive speeds even for large text collections to keep the user engaged in the process.
 
+* Online demo: http://sherlock.ukp.informatik.tu-darmstadt.de/
+* Video: https://vimeo.com/257601765
+
 If you reuse this software, please use the following citation:
 
 ```
@@ -17,16 +20,16 @@ If you reuse this software, please use the following citation:
   location = {Rio de Janeiro, Brazil}, 
   language = {English}, 
   doi = {10.14778/3229863.3236220}, 
-  pdf = {http://www.christian-meyer.org/research/publications/vldb2018/pdf/}, 
-  url = {http://www.christian-meyer.org/research/publications/vldb2018/} 
+  pdf = {http://www.vldb.org/pvldb/vol11/p1902-p.v.s..pdf}, 
+  url = {https://github.com/AIPHES/vldb2018-sherlock/} 
 } 
 ```
 
 **Contact person:**
 * Avinesh P.V.S., first_name AT aiphes.tu-darmstadt.de
 * Benajamin Haettasch, last_name AT aiphes.tu-darmstadt.de
-* http://www.ukp.tu-darmstadt.de/
-* http://www.tu-darmstadt.de/
+* https://www.aiphes.tu-darmstadt.de/
+* https://www.tu-darmstadt.de/
 
 Don't hesitate to send us an e-mail or report an issue, if something is broken (and it shouldn't be) or if you have further questions.
 
