@@ -25,9 +25,9 @@ If you reuse this software, please use the following citation:
 } 
 ```
 
-**Contact person:**
+**Contact persons:**
 * Avinesh P.V.S., first_name AT aiphes.tu-darmstadt.de
-* Benajamin Haettasch, last_name AT aiphes.tu-darmstadt.de
+* Benjamin Haettasch, last_name AT aiphes.tu-darmstadt.de, https://github.com/bhaettasch, https://twitter.com/bhaettasch_cs
 * https://www.aiphes.tu-darmstadt.de/
 * https://www.tu-darmstadt.de/
 
